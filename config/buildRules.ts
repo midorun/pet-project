@@ -29,19 +29,6 @@ const buildRules = (env: Env): webpack.RuleSetRule[] =>  [
       "sass-loader",
     ],
   },
-  // {
-  //   test: /\.m?ts?$/,
-  //   exclude: /node_modules/,
-  //   use: {
-  //     loader: 'babel-loader',
-  //     options: {
-  //       presets: [
-  //         ['@babel/preset-env', { targets: "defaults" }]
-  //       ],
-  //       plugins: ['@babel/module-resolver']
-  //     },
-  //   }
-  // }
 ]
 
 export default buildRules
