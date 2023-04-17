@@ -21,6 +21,8 @@ export default (env: Env) => {
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
+      // roots: [path.resolve(__dirname, 'src'), 'node_modules'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
     plugins,
     module: {
