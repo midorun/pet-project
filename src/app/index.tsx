@@ -3,6 +3,7 @@ import React, { FC, Suspense } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
 import '../styles/index.scss'
+import { cn } from 'utils/cn'
 
 const App: FC = (props) => {
   const {} = props
@@ -10,7 +11,7 @@ const App: FC = (props) => {
   const { theme, toggleTheme } = useThemeContext()
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={cn('app', {}, theme)}>
       <Link to={'/home'}>Home</Link>
       <Link to={'/about'}>About</Link>
 
