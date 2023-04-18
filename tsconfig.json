@@ -9,9 +9,9 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "strictNullChecks": true
   },
-  "include": ["src"], // TODO
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
