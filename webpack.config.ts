@@ -1,15 +1,14 @@
-import path from 'path';
+import path from 'path'
 
-import { Env } from './config/types';
+import { Env } from './config/types'
 
-import buildRules from './config/buildRules';
-import plugins from './config/plugins';
+import buildRules from './config/buildRules'
+import plugins from './config/plugins'
 
 import webpack from 'webpack'
-import webpackDevServer from 'webpack-dev-server'
 
 export default (env: Env) => {
-  const {mode, port = 3000} = env
+  const { mode, port = 3000 } = env
 
   const config: webpack.Configuration = {
     mode,
@@ -17,28 +16,27 @@ export default (env: Env) => {
     output: {
       filename: '[name].[contenthash].bundle.js',
       path: path.resolve(__dirname, 'dist'),
-      clean: true
+      clean: true,
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
-      // roots: [path.resolve(__dirname, 'src'), 'node_modules'],
-      modules: [path.resolve(__dirname, 'src'), 'node_modules']
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
     plugins,
     module: {
       rules: buildRules(env),
     },
 
-    ...(mode === 'development' ?
-      {
-        devtool: 'inline-source-map',
-        devServer: {
-          port,
-          open: false
+    ...(mode === 'development'
+      ? {
+          devtool: 'inline-source-map',
+          devServer: {
+            port,
+            open: false,
+            historyApiFallback: true,
+          },
         }
-      } :
-      undefined
-    )
+      : undefined),
   }
 
   return config

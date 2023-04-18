@@ -1,33 +1,20 @@
-import React, { FC, useState } from 'react'
-import { RouterProvider,createBrowserRouter } from 'react-router-dom';
-
-import About from 'pages/About';
-import Home from 'pages/Home';
+import React, { FC, Suspense } from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
 import '../../index.scss'
 
-
-const router = createBrowserRouter([{
-  path: '', element: <Home/>,
-
-}, {path: '/about', element: <About/>}])
-
-export type AppProps = {}
-
-const App: FC<AppProps> = props => {
+const App: FC = (props) => {
   const {} = props
-
-  const [counter, setCounter] = useState(0)
-
-  const incrementCounter = () => {
-    setCounter(prevState => prevState + 1)
-  }
 
   return (
     <div className={'app'}>
-     <RouterProvider router={router}/>
+      <Link to={'/home'}>Home</Link>
+      <Link to={'/about'}>About</Link>
+      <Suspense fallback={<span>Loading...</span>}>
+        <Outlet />
+      </Suspense>
     </div>
   )
-};
+}
 
 export default App

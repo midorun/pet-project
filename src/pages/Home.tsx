@@ -4,12 +4,10 @@ import React, { FC } from 'react'
 
 export type HomeProps = {}
 
-const Home: FC<HomeProps> = props => {
+const Home: FC<HomeProps> = (props) => {
   const {} = props
 
-  return (
-    <div>Home</div>
-  )
-};
+  return <h1>Home</h1>
+}
 
 export default Home

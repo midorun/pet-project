@@ -4,12 +4,10 @@ import React, { FC } from 'react'
 
 export type AboutProps = {}
 
-const About: FC<AboutProps> = props => {
+const About: FC<AboutProps> = (props) => {
   const {} = props
 
-  return (
-    <div>About</div>
-  )
-};
+  return <h1>About</h1>
+}
 
 export default About
