@@ -1,43 +1,28 @@
+import { buildWebpackConfig } from './config/buildWebpackConfig'
 import path from 'path'
-
-import { Env } from './config/types'
-
-import buildRules from './config/buildRules'
-import plugins from './config/plugins'
-
+import { BuildEnv, BuildPaths } from './config/types'
 import webpack from 'webpack'
 
-export default (env: Env) => {
-  const { mode, port = 3000 } = env
+export default (env: BuildEnv) => {
+  const { mode = 'development', port = 3000 } = env
 
-  const config: webpack.Configuration = {
-    mode,
+  const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
-    output: {
-      filename: '[name].[contenthash].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-      clean: true,
-    },
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    },
-    plugins,
-    module: {
-      rules: buildRules(env),
-    },
-
-    ...(mode === 'development'
-      ? {
-          devtool: 'inline-source-map',
-          devServer: {
-            port,
-            open: false,
-            historyApiFallback: true,
-          },
-        }
-      : undefined),
+    build: path.resolve(__dirname, 'build'),
+    html: path.resolve(__dirname, 'public', 'index.html'),
+    src: path.resolve(__dirname, 'src'),
   }
+
+  const isDev = mode === 'development'
+
+  const options = {
+    mode,
+    port,
+    paths,
+    isDev,
+  }
+
+  const config: webpack.Configuration = buildWebpackConfig(options)
 
   return config
 }
