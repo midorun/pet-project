@@ -1,0 +1,28 @@
+.navbar {
+  height: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--inverted-bg-color);
+
+  .navbarList {
+    display: flex;
+    flex: 1;
+  }
+
+  .navbarItem {
+    color: var(--inverted-primary-color);
+    padding: 5px;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    .navbarLink {
+      a.active {
+        color: #0ae50a;
+      }
+    }
+  }
+}

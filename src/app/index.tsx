@@ -1,9 +1,10 @@
-import { useThemeContext } from 'context/ThemeProvider'
+import { useThemeContext } from 'app/providers/ThemeProvider'
 import React, { FC, Suspense } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { cn } from 'shared/lib/cn'
+import { Navbar } from 'widgets/navbar'
 
-import '../styles/index.scss'
-import { cn } from 'utils/cn'
+import './styles/index.scss'
 
 const App: FC = (props) => {
   const {} = props
@@ -12,10 +13,9 @@ const App: FC = (props) => {
 
   return (
     <div className={cn('app', {}, theme)}>
-      <Link to={'/home'}>Home</Link>
-      <Link to={'/about'}>About</Link>
-
+      <Navbar />
       <button onClick={toggleTheme}>Toggle theme</button>
+
       <Suspense fallback={<span>Loading...</span>}>
         <Outlet />
       </Suspense>
