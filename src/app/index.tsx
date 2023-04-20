@@ -5,16 +5,15 @@ import { cn } from 'shared/lib/cn'
 import { Navbar } from 'widgets/navbar'
 
 import './styles/index.scss'
+import { ThemeSwitch } from 'features/theme-switch'
 
-const App: FC = (props) => {
-  const {} = props
-
-  const { theme, toggleTheme } = useThemeContext()
+const App: FC = () => {
+  const { theme } = useThemeContext()
 
   return (
-    <div className={cn('app', {}, theme)}>
+    <div className={cn('app', {}, [theme])}>
       <Navbar />
-      <button onClick={toggleTheme}>Toggle theme</button>
+      <ThemeSwitch />
 
       <Suspense fallback={<span>Loading...</span>}>
         <Outlet />
