@@ -1,5 +1,5 @@
 import ThemeProvider from 'app/providers/ThemeProvider'
-import { router } from 'app/router'
+import { router } from 'app/providers/router'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
