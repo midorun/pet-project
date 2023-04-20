@@ -47,6 +47,7 @@
     "@typescript-eslint/no-misused-promises": 0,
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
-    "@typescript-eslint/consistent-type-imports": 0
+    "@typescript-eslint/consistent-type-imports": 0,
+    "react/prop-types": "off"
   }
 }

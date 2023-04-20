@@ -38,11 +38,7 @@ export const buildRules = (options: BuildOptions): webpack.RuleSetRule[] => {
     },
     {
       test: /\.(png|jpe?g|gif|woff|woff2)$/i,
-      use: [
-        {
-          loader: 'file-loader',
-        },
-      ],
+      type: 'asset/resource',
     },
   ]
 }
