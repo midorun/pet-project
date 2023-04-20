@@ -8,21 +8,21 @@ import {
   useState,
 } from 'react'
 
-export enum ThemeValues {
+export enum ThemeValuesEnum {
   LIGHT = 'light',
   DARK = 'dark',
 }
 
 export type ThemeContextType = {
-  theme: ThemeValues
-  setTheme: Dispatch<SetStateAction<ThemeValues>>
+  theme: ThemeValuesEnum
+  setTheme: Dispatch<SetStateAction<ThemeValuesEnum>>
   toggleTheme: () => void
 }
 
 const LSK_THEME = 'theme'
 
 const themeContextDefaultValue =
-  (localStorage.getItem(LSK_THEME) as ThemeValues) ?? ThemeValues.LIGHT
+  (localStorage.getItem(LSK_THEME) as ThemeValuesEnum) ?? ThemeValuesEnum.LIGHT
 
 const ThemeContext = createContext<ThemeContextType | null>(null)
 
@@ -31,7 +31,9 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const toggleTheme = () => {
     const newThemeValue =
-      theme === ThemeValues.LIGHT ? ThemeValues.DARK : ThemeValues.LIGHT
+      theme === ThemeValuesEnum.LIGHT
+        ? ThemeValuesEnum.DARK
+        : ThemeValuesEnum.LIGHT
     setTheme(newThemeValue)
     localStorage.setItem(LSK_THEME, newThemeValue)
   }
