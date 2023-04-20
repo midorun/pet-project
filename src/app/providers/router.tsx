@@ -1,6 +1,4 @@
 import App from 'app/index'
-// import About from 'pages/About'
-// import Home from 'pages/Home'
 
 import React, { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
