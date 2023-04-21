@@ -1,0 +1,14 @@
+.App {
+}
+
+.header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--inverted-bg-color);
+}
+
+.main {
+  display: flex;
+}

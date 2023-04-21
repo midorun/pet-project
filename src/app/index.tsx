@@ -1,23 +1,35 @@
-import { useThemeContext } from 'app/providers/ThemeProvider'
 import React, { FC, Suspense } from 'react'
+
 import { Outlet } from 'react-router-dom'
-import { cn } from 'shared/lib/cn'
+
+import { useThemeContext } from 'app/providers/ThemeProvider'
+
 import { Navbar } from 'widgets/navbar'
+import { Sidebar } from 'widgets/sidebar'
+
+import { cn } from 'shared/lib/cn'
 
 import './styles/index.scss'
-import { ThemeSwitch } from 'features/theme-switch'
+
+import cns from './App.module.scss'
 
 const App: FC = () => {
   const { theme } = useThemeContext()
 
   return (
     <div className={cn('app', {}, [theme])}>
-      <Navbar />
-      <ThemeSwitch />
+      <header className={cn(cns.header)}>
+        <Navbar />
+      </header>
 
-      <Suspense fallback={<span>Loading...</span>}>
-        <Outlet />
-      </Suspense>
+      <main className={cn(cns.main)}>
+        <Sidebar />
+        <Suspense fallback={<span>Loading...</span>}>
+          <Outlet />
+        </Suspense>
+      </main>
+
+      <footer></footer>
     </div>
   )
 }

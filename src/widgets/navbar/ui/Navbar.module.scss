@@ -1,13 +1,10 @@
 .navbar {
-  height: 100px;
   align-items: center;
   display: flex;
-  justify-content: flex-end;
-  background-color: var(--inverted-bg-color);
+  margin-left: auto;
 
   .navbarList {
     display: flex;
-    flex: 1;
   }
 
   .navbarItem {
