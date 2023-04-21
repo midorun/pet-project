@@ -7,7 +7,8 @@
     "plugin:react/recommended",
     "standard-with-typescript",
     "prettier",
-    "plugin:@tanstack/eslint-plugin-query/recommended"
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:i18next/recommended"
   ],
   "overrides": [
   ],
@@ -21,7 +22,8 @@
   "plugins": [
     "react",
     "unused-imports",
-    "@tanstack/query"
+    "@tanstack/query",
+    "i18next"
   ],
   "rules": {
     "react/react-in-jsx-scope": 0,
