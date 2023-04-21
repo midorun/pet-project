@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 
+import { useTranslation } from 'react-i18next'
+
 // import styles from './index.module.scss'
 
 export type HomeProps = {}
@@ -7,7 +9,9 @@ export type HomeProps = {}
 const Home: FC<HomeProps> = (props) => {
   const {} = props
 
-  return <h1>Home</h1>
+  const { t } = useTranslation()
+
+  return <h1>{t('home')}</h1>
 }
 
 export default Home
