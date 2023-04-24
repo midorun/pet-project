@@ -1,7 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
 
-import { BuildOptions } from './types'
+import { BuildOptions } from '../types'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const ReactRefreshTypeScript = require('react-refresh-typescript')
@@ -10,6 +10,11 @@ export const buildRules = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options
 
   return [
+    {
+      test: /\.jsx?$/,
+      exclude: ['node_modules'],
+      use: ['babel-loader'],
+    },
     {
       test: /\.tsx?$/,
       use: [

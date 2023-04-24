@@ -1,9 +1,11 @@
-import { buildResolvers } from './buildResolvers'
-import { buildRules } from './buildRules'
+import webpack from 'webpack'
+
 import { buildDevServer } from './buildDevServer'
 import { buildPlugins } from './buildPlugins'
-import webpack from 'webpack'
-import { BuildOptions } from './types'
+import { buildResolvers } from './buildResolvers'
+import { buildRules } from './buildRules'
+
+import { BuildOptions } from '../types'
 
 export const buildWebpackConfig = (
   options: BuildOptions

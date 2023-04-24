@@ -2,7 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
 
-import { BuildOptions } from './types'
+import { BuildOptions } from '../types'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')

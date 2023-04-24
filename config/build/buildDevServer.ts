@@ -1,4 +1,4 @@
-import { BuildOptions } from './types'
+import { BuildOptions } from '../types'
 
 export const buildDevServer = (options: BuildOptions) => {
   const { port } = options
