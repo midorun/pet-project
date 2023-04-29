@@ -10,11 +10,11 @@ export const buildRules = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options
 
   return [
-    {
-      test: /\.jsx?$/,
-      exclude: ['node_modules'],
-      use: ['babel-loader'],
-    },
+    // {
+    //   test: /\.(jsx|tsx)?$/,
+    //   exclude: ['node_modules'],
+    //   use: ['babel-loader'],
+    // },
     {
       test: /\.tsx?$/,
       use: [
