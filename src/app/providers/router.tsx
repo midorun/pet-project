@@ -1,12 +1,15 @@
-import App from 'app/index'
-
 import React, { lazy } from 'react'
+
+import App from 'app'
 import { createBrowserRouter } from 'react-router-dom'
 
-const About = lazy(async () => await import('pages/About'))
-const Home = lazy(async () => await import('pages/Home'))
+import NotFoundPage from 'pages/NotFoundPage'
+
+const About = lazy(async () => await import('pages/AboutPage'))
+const Home = lazy(async () => await import('pages/HomePage'))
 
 export const router = createBrowserRouter([
+  { path: '/*', element: <NotFoundPage /> },
   {
     path: '/',
     element: <App />,
