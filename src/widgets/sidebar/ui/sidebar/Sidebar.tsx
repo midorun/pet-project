@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
+import { dataTestId } from 'widgets/sidebar'
+
 import { LangSwitch } from 'features/lang-switch'
 import { ThemeSwitch } from 'features/theme-switch'
 
@@ -11,11 +13,7 @@ import Button from 'shared/ui/button/Button'
 
 import cns from './Sidebar.module.scss'
 
-type SidebarProps = {}
-
-const Sidebar: FC<SidebarProps> = (props) => {
-  const { className } = props
-
+const Sidebar: FC = () => {
   const { t } = useTranslation()
 
   const [isCollapsed, setIsCollapsed] = useState(false)
@@ -26,9 +24,11 @@ const Sidebar: FC<SidebarProps> = (props) => {
 
   return (
     <aside
-      className={cn(cns.Sidebar, { [cns.collapsed]: isCollapsed }, [className])}
+      data-testid={dataTestId}
+      className={cn(cns.Sidebar, { [cns.collapsed]: isCollapsed }, [])}
     >
       <Button
+        data-testid={'sidebar-toggle'}
         variant={UIVariantEnum.SECONDARY}
         onClick={toggleIsCollapsed}
         className={cn(cns.collapsedSwitch)}
@@ -40,5 +40,4 @@ const Sidebar: FC<SidebarProps> = (props) => {
     </aside>
   )
 }
-
 export default Sidebar

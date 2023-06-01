@@ -1,4 +1,4 @@
-import { cn } from './index'
+import { cn } from './'
 
 describe('cn', () => {
   test('test', () => {
