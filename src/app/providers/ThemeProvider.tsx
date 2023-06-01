@@ -58,7 +58,7 @@ export const useThemeContext = () => {
 
   if (!themeContext) {
     throw new Error(
-      'useCurrentUser has to be used within <ThemeContext.Provider>'
+      'useThemeContext has to be used within <ThemeContext.Provider>'
     )
   }
 
