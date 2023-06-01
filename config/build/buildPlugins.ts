@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import { BuildOptions } from '../types'
 
@@ -29,6 +30,7 @@ export const buildPlugins = (
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }))
     plugins.push(new webpack.HotModuleReplacementPlugin())
+    plugins.push(new BundleAnalyzerPlugin())
   }
 
   return plugins
