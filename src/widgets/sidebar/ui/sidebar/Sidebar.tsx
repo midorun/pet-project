@@ -15,6 +15,8 @@ import cns from './Sidebar.module.scss'
 
 const Sidebar: FC = (props) => {
   const {} = props
+
+  const {} = {}
   const { t } = useTranslation()
 
   const [isCollapsed, setIsCollapsed] = useState(false)
