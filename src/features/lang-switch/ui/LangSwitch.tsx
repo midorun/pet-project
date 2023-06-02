@@ -7,11 +7,7 @@ import { FC } from 'shared/types'
 
 import cns from './LangSwitch.module.scss'
 
-type LangSwitchProps = {}
-
-const LangSwitch: FC<LangSwitchProps> = (props) => {
-  const { className } = props
-
+const LangSwitch: FC = () => {
   const { t, i18n } = useTranslation()
 
   const toggleLang = () => {
@@ -20,7 +16,7 @@ const LangSwitch: FC<LangSwitchProps> = (props) => {
 
   return (
     <button
-      className={cn(cns.LangSwitch, {}, [className])}
+      className={cn(cns.LangSwitch, {}, [])}
       onClick={toggleLang}
     >
       {t('lang')}

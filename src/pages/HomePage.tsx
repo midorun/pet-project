@@ -36,31 +36,31 @@ const HomePage: FC = () => {
     <div>
       <h1>{t('home')}</h1>
 
-      <button
-        id={'open'}
-        onClick={openModal}
-      >
-        Open dialog
-      </button>
+      {/* <button */}
+      {/*  id={'open'} */}
+      {/*  onClick={openModal} */}
+      {/* > */}
+      {/*  Open dialog */}
+      {/* </button> */}
 
-      <dialog
-        ref={dialogRef}
-        id={'dialog'}
-        onClick={dialogClickHandler}
-      >
-        <div
-          id={'dialog-content'}
-          ref={dialogContentRef}
-        >
-          Dialog
-        </div>
-        <button
-          id={'close'}
-          onClick={closeModal}
-        >
-          Close dialog
-        </button>
-      </dialog>
+      {/* <dialog */}
+      {/*  ref={dialogRef} */}
+      {/*  id={'dialog'} */}
+      {/*  onClick={dialogClickHandler} */}
+      {/* > */}
+      {/*  <div */}
+      {/*    id={'dialog-content'} */}
+      {/*    ref={dialogContentRef} */}
+      {/*  > */}
+      {/*    Dialog */}
+      {/*  </div> */}
+      {/*  <button */}
+      {/*    id={'close'} */}
+      {/*    onClick={closeModal} */}
+      {/*  > */}
+      {/*    Close dialog */}
+      {/*  </button> */}
+      {/* </dialog> */}
     </div>
   )
 }

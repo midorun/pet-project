@@ -2,8 +2,11 @@
   "extends": "stylelint-config-standard-scss",
   "rules": {
     "selector-class-pattern": null,
-    "custom-property-empty-line-before": [{
-      "ignore": ["after-comment", "inside-single-line-block"]
-    }]
+    "custom-property-empty-line-before": [
+      "never", {
+        "ignore": ["after-comment"]
+      }
+    ],
+    "block-no-empty": null
   }
 }
