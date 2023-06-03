@@ -25,18 +25,29 @@ jobs:
         run: npm run build:prod
 
   lint-ts:
-    - name: linting typescript
-      run: npm run lint:ts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: linting typescript
+        run: npm run lint:ts
 
   lint-scss:
-    - name: linting css
-      run: npm run lint:scss
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: linting css
+        run: npm run lint:scss
 
   jest:
+    runs-on: ubuntu-latest
+
+    steps:
     - name: jest testing
       run: npm run test:jest
 
   storybook:
+    runs-on: ubuntu-latest
+
     steps:
       - name: build storybook
         run: npm run storybook:build
