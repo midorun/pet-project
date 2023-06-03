@@ -25,6 +25,7 @@ jobs:
         run: npm run build:prod
 
   lint-ts:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -32,6 +33,7 @@ jobs:
         run: npm run lint:ts
 
   lint-scss:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
