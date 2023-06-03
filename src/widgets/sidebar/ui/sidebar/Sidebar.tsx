@@ -13,8 +13,7 @@ import Button from 'shared/ui/button/Button'
 
 import cns from './Sidebar.module.scss'
 
-const Sidebar: FC = (props) => {
-  const {} = props
+const Sidebar: FC = () => {
   const { t } = useTranslation()
 
   const [isCollapsed, setIsCollapsed] = useState(false)

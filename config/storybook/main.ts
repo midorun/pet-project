@@ -31,8 +31,10 @@ const config: StorybookConfig = {
 
     if (config.module?.rules) {
       config.module.rules = config.module.rules.map((rule) => {
+        // @ts-expect-error
         if (/svg/.test(rule.test)) {
           // Silence the Storybook loaders for SVG files
+          // @ts-expect-error
           return { ...rule, exclude: /\.svg$/i }
         }
 

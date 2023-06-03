@@ -8,15 +8,11 @@ import { FC } from 'shared/types'
 
 import cns from './Navbar.module.scss'
 
-export type NavbarProps = {}
-
-const Navbar: FC<NavbarProps> = (props) => {
-  const { className } = props
-
+const Navbar: FC = () => {
   const { t } = useTranslation()
 
   return (
-    <nav className={cn(cns.navbar, {}, [className])}>
+    <nav className={cn(cns.navbar, {}, [])}>
       <ul className={cn(cns.navbarList, {})}>
         <li className={cn(cns.navbarItem, {})}>
           <NavLink
