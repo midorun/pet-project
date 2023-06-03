@@ -6,11 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  build:
+  job:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 17.x ]
+        ci_index: [0, 1]
+        ci_total: [2]
       fail-fast: false
 
     steps:
@@ -23,34 +25,12 @@ jobs:
         run: npm install
       - name: building production
         run: npm run build:prod
-
-  lint-ts:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: linting typescript
         run: npm run lint:ts
-
-  lint-scss:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
       - name: linting css
         run: npm run lint:scss
-
-  jest:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: jest testing
-      run: npm run test:jest
-
-  storybook:
-    runs-on: ubuntu-latest
-
-    steps:
+      - name: jest testing
+        run: npm run test:jest
       - name: build storybook
         run: npm run storybook:build
       - name: loki testing
