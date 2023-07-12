@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom'
 
 import { useThemeContext } from 'app/providers/ThemeProvider'
 
-import Navbar from 'widgets/navbar'
 import PageLoader from 'widgets/page-loader'
 import Sidebar from 'widgets/sidebar'
 
@@ -23,9 +22,7 @@ const App: FC = () => {
 
   return (
     <div className={cn('app', {}, [theme])}>
-      <header className={cn(cns.header)}>
-        <Navbar />
-      </header>
+      <header className={cn(cns.header)}></header>
 
       <main className={cn(cns.main)}>
         <Sidebar />
