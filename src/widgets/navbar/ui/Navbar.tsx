@@ -3,6 +3,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 
+import { AboutIcon, HomeIcon } from 'shared/assets/icons'
 import { cn } from 'shared/lib/cn'
 import { FC } from 'shared/types'
 
@@ -19,7 +20,8 @@ const Navbar: FC = () => {
             className={cn(cns.navbarLink, {})}
             to={'/home'}
           >
-            {t('home')}
+            <HomeIcon className={cns.navbarIcon} />
+            <span className={cns.navbarLinkText}>{t('home')}</span>
           </NavLink>
         </li>
         <li className={cn(cns.navbarItem, {})}>
@@ -27,7 +29,8 @@ const Navbar: FC = () => {
             className={cn(cns.navbarLink, {})}
             to={'/about'}
           >
-            {t('about')}
+            <AboutIcon className={cns.navbarIcon} />
+            <span className={cns.navbarLinkText}>{t('about')}</span>
           </NavLink>
         </li>
       </ul>

@@ -1,13 +1,14 @@
 .navbar {
   align-items: center;
   display: flex;
-  margin-left: auto;
+  container-type: inline-size;
 
-  .navbarList {
+  &List {
     display: flex;
+    flex-direction: column;
   }
 
-  .navbarItem {
+  &Item {
     color: var(--inverted-primary-color);
     padding: 5px;
     cursor: pointer;
@@ -15,11 +16,33 @@
     &:not(:last-child) {
       margin-right: 10px;
     }
+  }
 
-    .navbarLink {
-      a.active {
-        color: #0ae50a;
-      }
+  &Icon {
+    fill: var(--inverted-primary-color);
+  }
+
+  &LinkText {
+    opacity: 1;
+    height: 19px;
+    display: block;
+  }
+
+  @container (max-width: 250px)  /* TODO inline 250px */ {
+    &LinkText {
+      animation-name: hide-link-text;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
     }
+  }
+}
+
+@keyframes hide-link-text {
+  from {
+    height: 19px;
+  }
+
+  to {
+    height: 0;
   }
 }
