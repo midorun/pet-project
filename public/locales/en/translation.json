@@ -3,6 +3,6 @@
   "error-boundary": "error-boundary",
   "home": "Home",
   "lang": "English",
-  "notFoundPage": "Page not found",
-  "toggleCollapse": "Toggle Collapse"
+  "not-found-page": "Page not found",
+  "toggle-collapse": "Toggle Collapse"
 }

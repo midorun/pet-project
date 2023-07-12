@@ -3,6 +3,6 @@
   "error-boundary": "error-boundary",
   "home": "Главная",
   "lang": "Русский",
-  "notFoundPage": "Страница не найдена",
-  "toggleCollapse": "Переключить коллапс"
+  "not-found-page": "Страница не найдена",
+  "toggle-collapse": "Переключить коллапс"
 }
