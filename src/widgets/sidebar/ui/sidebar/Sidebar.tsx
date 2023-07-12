@@ -1,40 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import { useTranslation } from 'react-i18next'
-
-import { dataTestId } from 'widgets/sidebar'
+import Navbar from 'widgets/navbar'
 
 import { LangSwitch } from 'features/lang-switch'
 import { ThemeSwitch } from 'features/theme-switch'
 
 import { cn } from 'shared/lib/cn'
-import { FC, UIVariantEnum } from 'shared/types'
-import Button from 'shared/ui/button/Button'
+import { FC } from 'shared/types'
 
 import cns from './Sidebar.module.scss'
 
 const Sidebar: FC = () => {
-  const { t } = useTranslation()
-
-  const [isCollapsed, setIsCollapsed] = useState(false)
-
-  const toggleIsCollapsed = () => {
-    setIsCollapsed(!isCollapsed)
-  }
-
   return (
     <aside
-      data-testid={dataTestId}
-      className={cn(cns.Sidebar, { [cns.collapsed]: isCollapsed }, [])}
+      data-testid={'sidebar'}
+      className={cn(cns.Sidebar)}
     >
-      <Button
-        data-testid={'sidebar-toggle'}
-        variant={UIVariantEnum.SECONDARY}
-        onClick={toggleIsCollapsed}
-        className={cn(cns.collapsedSwitch)}
-      >
-        {t('toggleCollapse')}
-      </Button>
+      <Navbar />
       <LangSwitch />
       <ThemeSwitch className={cn(cns.themeSwitch)} />
     </aside>
