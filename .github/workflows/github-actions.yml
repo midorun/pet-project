@@ -6,14 +6,11 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  job:
+  pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 17.x ]
-        ci_index: [0, 1]
-        ci_total: [2]
-      fail-fast: false
 
     steps:
       - uses: actions/checkout@v2
@@ -21,17 +18,22 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install packages
+      - name: install modules
         run: npm install
-      - name: building production
+      - name: build production project
         run: npm run build:prod
+        if: always()
       - name: linting typescript
         run: npm run lint:ts
+        if: always()
       - name: linting css
         run: npm run lint:scss
-      - name: jest testing
-        run: npm run test:jest
+      - name: unit testing
+        if: always()
+        run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
-      - name: loki testing
-        run: npm run test:loki:ci
+        if: always()
+      - name: screenshot testing
+        run: npm run test:ui:ci
+        if: always()
