@@ -3,11 +3,11 @@
   height: calc(100vh - var(--header-height));
   background-color: var(--inverted-bg-color);
   position: relative;
-  transition: width 1s;
+  transition: width 0.5s;
 
   &:hover {
     width: var(--sidebar-width);
-    transition: width 0.5s;
+    transition: width 1s;
   }
 
   .sidebarToggle {

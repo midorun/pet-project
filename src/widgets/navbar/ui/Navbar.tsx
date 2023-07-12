@@ -9,28 +9,40 @@ import { FC } from 'shared/types'
 
 import cns from './Navbar.module.scss'
 
-const Navbar: FC = () => {
+type Props = {
+  isHovered: boolean
+}
+
+const Navbar: FC<Props> = (props) => {
+  const { isHovered } = props
+
   const { t } = useTranslation()
 
   return (
-    <nav className={cn(cns.navbar, {}, [])}>
-      <ul className={cn(cns.navbarList, {})}>
-        <li className={cn(cns.navbarItem, {})}>
+    <nav
+      className={cn(
+        cns.navbar,
+        { [cns.navbar_hovered]: isHovered, [cns.navbar_unhovered]: !isHovered },
+        []
+      )}
+    >
+      <ul className={cn(cns.list, {})}>
+        <li className={cn(cns.item, {})}>
           <NavLink
-            className={cn(cns.navbarLink, {})}
+            className={cn(cns.link, {})}
             to={'/home'}
           >
-            <HomeIcon className={cns.navbarIcon} />
-            <span className={cns.navbarLinkText}>{t('home')}</span>
+            <HomeIcon className={cns.icon} />
+            <span className={cns.linkText}>{t('home')}</span>
           </NavLink>
         </li>
-        <li className={cn(cns.navbarItem, {})}>
+        <li className={cn(cns.item, {})}>
           <NavLink
-            className={cn(cns.navbarLink, {})}
+            className={cn(cns.link, {})}
             to={'/about'}
           >
-            <AboutIcon className={cns.navbarIcon} />
-            <span className={cns.navbarLinkText}>{t('about')}</span>
+            <AboutIcon className={cns.icon} />
+            <span className={cns.linkText}>{t('about')}</span>
           </NavLink>
         </li>
       </ul>

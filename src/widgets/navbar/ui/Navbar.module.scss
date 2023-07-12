@@ -3,12 +3,12 @@
   display: flex;
   container-type: inline-size;
 
-  &List {
+  .list {
     display: flex;
     flex-direction: column;
   }
 
-  &Item {
+  .item {
     color: var(--inverted-primary-color);
     padding: 5px;
     cursor: pointer;
@@ -18,31 +18,40 @@
     }
   }
 
-  &Icon {
+  .link {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .icon {
     fill: var(--inverted-primary-color);
   }
 
-  &LinkText {
-    opacity: 1;
-    height: 19px;
-    display: block;
+  &_hovered {
+    .linkText {
+      animation: show-link-text 1s ease forwards;
+    }
   }
 
-  @container (max-width: 250px)  /* TODO inline 250px */ {
-    &LinkText {
-      animation-name: hide-link-text;
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
+  &_unhovered {
+    .linkText {
+      animation: hide-link-text 0.5s ease forwards;
     }
   }
 }
 
-@keyframes hide-link-text {
+@keyframes show-link-text {
   from {
-    height: 19px;
+    font-size: 0;
   }
 
   to {
-    height: 0;
+    font-size: var(--font-size-m);
+  }
+}
+
+@keyframes hide-link-text {
+  to {
+    font-size: 0;
   }
 }
