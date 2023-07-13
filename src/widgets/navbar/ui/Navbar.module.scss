@@ -1,13 +1,14 @@
 .navbar {
   align-items: center;
   display: flex;
-  margin-left: auto;
+  container-type: inline-size;
 
-  .navbarList {
+  .list {
     display: flex;
+    flex-direction: column;
   }
 
-  .navbarItem {
+  .item {
     color: var(--inverted-primary-color);
     padding: 5px;
     cursor: pointer;
@@ -15,11 +16,42 @@
     &:not(:last-child) {
       margin-right: 10px;
     }
+  }
 
-    .navbarLink {
-      a.active {
-        color: #0ae50a;
-      }
+  .link {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .icon {
+    fill: var(--inverted-primary-color);
+  }
+
+  &_hovered {
+    .linkText {
+      animation: show-link-text 1s ease forwards;
     }
+  }
+
+  &_unhovered {
+    .linkText {
+      animation: hide-link-text 0.5s ease forwards;
+    }
+  }
+}
+
+@keyframes show-link-text {
+  from {
+    font-size: 0;
+  }
+
+  to {
+    font-size: var(--font-size-m);
+  }
+}
+
+@keyframes hide-link-text {
+  to {
+    font-size: 0;
   }
 }

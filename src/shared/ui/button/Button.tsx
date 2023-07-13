@@ -1,7 +1,7 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import React, { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react'
 
 import { cn } from 'shared/lib/cn'
-import { FC, UIVariantEnum } from 'shared/types'
+import { UIVariantEnum } from 'shared/types'
 
 import cns from './Button.module.scss'
 

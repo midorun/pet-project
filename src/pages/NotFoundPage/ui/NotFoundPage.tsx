@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { useRouteError } from 'react-router-dom'
-
-import { FC } from 'shared/types'
 
 const NotFoundPage: FC = () => {
   const { t } = useTranslation()

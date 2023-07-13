@@ -6,32 +6,39 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  job:
+  pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
-        ci_index: [0, 1]
-        ci_total: [2]
-      fail-fast: false
+        node-version: [ 18.x ]
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install packages
-        run: npm install
-      - name: building production
-        run: npm run build:prod
+      - name: install modules
+        run: yarn
+      - name: build production project
+        run: yarn build:prod
+        if: always()
       - name: linting typescript
-        run: npm run lint:ts
+        run: yarn lint:ts
+        if: always()
       - name: linting css
-        run: npm run lint:scss
-      - name: jest testing
-        run: npm run test:jest
-      - name: build storybook
-        run: npm run storybook:build
-      - name: loki testing
-        run: npm run test:loki:ci
+        run: yarn lint:scss
+      - name: unit testing
+        if: always()
+        run: yarn test:jest
+      - name: publish to chromatic
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true
+          exitZeroOnChanges: true
+          buildScriptName: storybook:build
