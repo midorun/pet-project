@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 
 import Navbar from 'widgets/navbar'
 
@@ -6,7 +6,6 @@ import { LangSwitch } from 'features/lang-switch'
 import { ThemeSwitch } from 'features/theme-switch'
 
 import { cn } from 'shared/lib/cn'
-import { FC } from 'shared/types'
 
 import cns from './Sidebar.module.scss'
 

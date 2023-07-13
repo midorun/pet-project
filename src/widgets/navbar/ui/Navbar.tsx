@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 
 import { AboutIcon, HomeIcon } from 'shared/assets/icons'
 import { cn } from 'shared/lib/cn'
-import { FC } from 'shared/types'
 
 import cns from './Navbar.module.scss'
 

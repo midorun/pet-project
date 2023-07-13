@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { FC } from 'shared/types'
+import React, { FC } from 'react'
 
 import './Loader.scss'
 

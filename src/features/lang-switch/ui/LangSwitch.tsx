@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
 import { cn } from 'shared/lib/cn'
-import { FC } from 'shared/types'
 
 import cns from './LangSwitch.module.scss'
 
