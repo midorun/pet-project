@@ -14,6 +14,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -31,7 +33,7 @@ jobs:
       - name: unit testing
         if: always()
         run: yarn test:jest
-      - name: Publish to Chromatic
+      - name: publish to chromatic
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
