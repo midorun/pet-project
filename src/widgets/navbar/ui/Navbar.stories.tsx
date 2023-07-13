@@ -1,13 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react'
-
-import RouterDecorator from 'shared/storybook/decorators/RouterDecorator'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import Navbar from './Navbar'
 
 const meta: Meta<typeof Navbar> = {
   title: 'widgets/Navbar',
   component: Navbar,
-  decorators: [RouterDecorator],
+  decorators: [withRouter],
 }
 
 export default meta
@@ -15,3 +14,9 @@ export default meta
 type Story = StoryObj<typeof Navbar>
 
 export const Default: Story = {}
+
+export const Hovered: Story = {
+  args: {
+    isHovered: true,
+  },
+}
