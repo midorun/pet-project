@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { cn } from 'shared/lib/cn'
+import cn from 'shared/lib/cn'
 
 import cns from './LangSwitch.module.scss'
 

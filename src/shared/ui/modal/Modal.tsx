@@ -8,7 +8,7 @@ import React, {
 
 import { t } from 'i18next'
 
-import { cn } from 'shared/lib/cn'
+import cn from 'shared/lib/cn'
 import Button from 'shared/ui/button/Button'
 
 import cns from './Modal.module.scss'
