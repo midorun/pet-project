@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
+import ThemeDecorator from '@storybookConfig/decorators/ThemeDecorator'
 
 import { ThemeValuesEnum } from 'app/providers/ThemeProvider'
 
 import 'app/styles/index.scss'
-import ThemeDecorator from 'shared/storybook/decorators/ThemeDecorator'
 import { UIVariantEnum } from 'shared/types'
 import Button from 'shared/ui/button/Button'
 

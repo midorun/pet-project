@@ -10,7 +10,7 @@ import { cn } from 'shared/lib/cn'
 import cns from './Sidebar.module.scss'
 
 const Sidebar: FC = () => {
-  const [isHovered, setIsHovered] = useState(true)
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <aside

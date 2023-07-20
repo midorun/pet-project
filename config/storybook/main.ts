@@ -26,6 +26,13 @@ const config: StorybookConfig = {
       config.resolve.modules.push(path.resolve(__dirname, '..', '..', 'src'))
     }
 
+    if (config.resolve?.alias) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@storybookConfig': path.resolve(__dirname, './'),
+      }
+    }
+
     if (config.resolve?.extensions) {
       config.resolve.extensions.push('.ts', '.tsx')
     }
