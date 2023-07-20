@@ -1,9 +1,9 @@
 import { ThemeValuesEnum } from 'app/providers/ThemeProvider'
 
-import StyleDecorator from 'shared/storybook/decorators/StyleDecorator'
-import ThemeDecorator from 'shared/storybook/decorators/ThemeDecorator'
-
 import type { Preview } from '@storybook/react'
+
+import StyleDecorator from './decorators/StyleDecorator'
+import ThemeDecorator from './decorators/ThemeDecorator'
 
 const preview: Preview = {
   parameters: {
