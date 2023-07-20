@@ -4,10 +4,11 @@ import { Outlet } from 'react-router-dom'
 
 import { useThemeContext } from 'app/providers/ThemeProvider'
 
+import Header from 'widgets/header'
 import PageLoader from 'widgets/page-loader'
 import Sidebar from 'widgets/sidebar'
 
-import { cn } from 'shared/lib/cn'
+import cn from 'shared/lib/cn'
 
 import './styles/index.scss'
 
@@ -22,7 +23,7 @@ const App: FC = () => {
 
   return (
     <div className={cn('app', {}, [theme])}>
-      <header className={cn(cns.header)}></header>
+      <Header />
 
       <main className={cn(cns.main)}>
         <Sidebar />

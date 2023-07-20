@@ -2,6 +2,8 @@
   margin: auto;
   max-width: 50%;
   color: var(--primary-color);
+  padding: 20px;
+  border-radius: 10px;
 
   &::backdrop {
     background-color: rgb(217 217 217 / 80%);

@@ -1,6 +1,6 @@
 type ModsType = Record<string, string | boolean>
 
-export const cn = (
+const cn = (
   className: string,
   mods: ModsType = {},
   additional?: Array<string | undefined>
@@ -16,3 +16,5 @@ export const cn = (
 
   return [className, ...filteredMods, additional?.join(' ')].join(' ').trim()
 }
+
+export default cn

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 
 import { AboutIcon, HomeIcon } from 'shared/assets/icons'
-import { cn } from 'shared/lib/cn'
+import cn from 'shared/lib/cn'
 
 import cns from './Navbar.module.scss'
 
