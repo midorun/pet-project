@@ -10,7 +10,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 export const buildPlugins = (
   options: BuildOptions
 ): webpack.WebpackPluginInstance[] => {
-  const { paths, isDev } = options
+  const { paths, isDev, apiBaseUrl } = options
 
   const plugins = [
     new HtmlWebpackPlugin({
@@ -23,6 +23,7 @@ export const buildPlugins = (
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API_BASE_URL__: JSON.stringify(apiBaseUrl),
     }),
   ]
 
