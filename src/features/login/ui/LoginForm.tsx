@@ -3,12 +3,15 @@ import React, { FC } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
+import { LocalStorageKeysEnum } from 'shared/const/localStorageKeys'
 import cn from 'shared/lib/cn'
 import Button from 'shared/ui/button/Button'
 import Input from 'shared/ui/input/Input'
 import Modal from 'shared/ui/modal/Modal'
 
 import cns from './LoginForm.module.scss'
+
+import { useLogin } from '../api/useLogin'
 
 type LoginFormProps = {
   isOpen: boolean
@@ -29,10 +32,21 @@ const LoginForm: FC<LoginFormProps> = (props) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormData>()
 
+  const { mutate: login } = useLogin()
+
   const submit = (data: FormData) => {
-    console.log(data)
+    const onSuccess = () => {
+      onClose()
+      reset()
+      localStorage.setItem(LocalStorageKeysEnum.IS_AUTHORIZED, 'true')
+    }
+
+    login(data, {
+      onSuccess,
+    })
   }
 
   const required = t('Обязательное поле')
