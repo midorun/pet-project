@@ -9,6 +9,7 @@ import React, {
 import { t } from 'i18next'
 
 import cn from 'shared/lib/cn'
+import useIsFirstRender from 'shared/lib/hooks/useIsFirstRender'
 import Button from 'shared/ui/button/Button'
 
 import cns from './Modal.module.scss'
@@ -24,9 +25,15 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const dialogContentRef = useRef<HTMLDivElement>(null)
 
+  const isFirstRender = useIsFirstRender()
+
   useEffect(() => {
     if (isOpen) {
       open()
+    }
+
+    if (!(isFirstRender || isOpen)) {
+      close()
     }
   }, [isOpen])
 
