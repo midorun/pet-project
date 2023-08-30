@@ -8,7 +8,7 @@ import NotFoundPage from 'pages/NotFoundPage'
 const About = lazy(async () => await import('pages/AboutPage'))
 const Home = lazy(async () => await import('pages/HomePage'))
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   { path: '/*', element: <NotFoundPage /> },
   {
     path: '/',
@@ -19,3 +19,5 @@ export const router = createBrowserRouter([
     ],
   },
 ])
+
+export default router

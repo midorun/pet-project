@@ -10,6 +10,7 @@ export type BuildPaths = {
 export type BuildEnv = Partial<{
   mode: BuildMode
   port: number
+  apiBaseUrl: string
 }>
 
 export type BuildOptions = {
@@ -17,4 +18,5 @@ export type BuildOptions = {
   paths: BuildPaths
   isDev: boolean
   port: number
+  apiBaseUrl?: string
 }

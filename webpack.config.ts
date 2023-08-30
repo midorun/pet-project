@@ -6,7 +6,7 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig'
 import { BuildEnv, BuildPaths } from './config/types'
 
 export default (env: BuildEnv) => {
-  const { mode = 'development', port = 3000 } = env
+  const { mode = 'development', port = 3000, apiBaseUrl } = env
 
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -22,6 +22,7 @@ export default (env: BuildEnv) => {
     port,
     paths,
     isDev,
+    apiBaseUrl,
   }
 
   const config: webpack.Configuration = buildWebpackConfig(options)
