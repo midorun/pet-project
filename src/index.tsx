@@ -5,7 +5,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
-
 // @ts-ignore
 import RecoilizeDebugger from 'recoilize'
 

@@ -2,14 +2,16 @@ import React, { FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
+import UpdatableUserProfileCard from 'entities/user/ui/updatable-user-profile-card/UpdatableUserProfileCard'
+
 const HomePage: FC = () => {
   const { t } = useTranslation()
-
-  console.log(__API_BASE_URL__)
 
   return (
     <div>
       <h1>{t('home')}</h1>
+
+      <UpdatableUserProfileCard userId={'3'} />
     </div>
   )
 }
