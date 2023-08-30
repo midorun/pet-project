@@ -6,12 +6,12 @@ import { LangSwitch } from 'features/lang-switch'
 import { ThemeSwitch } from 'features/theme-switch'
 
 import cn from 'shared/lib/cn'
-import useToggleState from 'shared/lib/hooks/useToggleState'
+import useBooleanState from 'shared/lib/hooks/useBooleanState'
 
 import cns from './Sidebar.module.scss'
 
 const Sidebar: FC = () => {
-  const [isHovered, setIsHoveredToTrue, setIsHoveredToFalse] = useToggleState()
+  const [isHovered, setIsHoveredToTrue, setIsHoveredToFalse] = useBooleanState()
 
   return (
     <aside
