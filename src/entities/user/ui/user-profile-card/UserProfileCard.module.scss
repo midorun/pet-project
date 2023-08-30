@@ -1,0 +1,9 @@
+.UserProfileCard {
+  display: flex;
+  flex-direction: column;
+
+  .dataField {
+    display: flex;
+    gap: 0 4px;
+  }
+}

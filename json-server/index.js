@@ -3,7 +3,7 @@ const path = require('path')
 
 const jsonServer = require('json-server')
 const server = jsonServer.create()
-const router = jsonServer.router('db.json')
+const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(jsonServer.defaults())
@@ -37,7 +37,7 @@ server.get('/me', (req, res) => {
     if (req.headers.authorization) {
       const id = req.query['id']
 
-      const user = DB().users.find((user) => user.id === id)
+      const { password, ...user } = DB().users.find((user) => user.id === id)
 
       return res.status(200).json(user)
     }
@@ -45,6 +45,12 @@ server.get('/me', (req, res) => {
     return res.status(403).json({ message: 'Unauthorized' })
   } catch (e) {}
 })
+
+// server.put('/user/:id', (req, res) => {
+//   try {
+//     console.log(req.params)
+//   } catch (e) {}
+// })
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server

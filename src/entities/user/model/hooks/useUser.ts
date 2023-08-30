@@ -2,16 +2,16 @@ import { useQuery } from '@tanstack/react-query'
 
 import rest from 'shared/api'
 
-import { User } from '../types'
+import { UserType } from '../types'
 
 const getUser = async (id: string) => {
-  const res = await rest.get<User>('/me', { params: { id } })
+  const res = await rest.get<UserType>(`/users/${id}`)
   return res.data
 }
 
 export const useUser = (id?: string) => {
   return useQuery({
-    queryKey: ['user', id],
+    queryKey: ['users', id],
     queryFn: () => getUser(id),
     enabled: !!id,
   })
