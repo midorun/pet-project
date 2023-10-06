@@ -19,6 +19,7 @@ export const buildWebpackConfig = (
       filename: '[name].[contenthash].js',
       path: paths.build,
       clean: true,
+      publicPath: '/', // без него не работали /:id пути
     },
     plugins: buildPlugins(options),
     module: {

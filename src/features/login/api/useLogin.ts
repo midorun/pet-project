@@ -1,18 +1,31 @@
 import { useMutation } from '@tanstack/react-query'
+import { useSetRecoilState } from 'recoil'
+
+import { UserType } from 'entities/user'
+import { authAtom } from 'entities/user/model/authAtom'
 
 import rest from 'shared/api'
-import { LocalStorageKeysEnum } from 'shared/const/localStorageKeys'
 
-export const useLogin = () =>
-  useMutation({
+export type LoginArgs = {
+  username: string
+  password: string
+}
+
+const login = async (args: LoginArgs) => {
+  const res = await rest.post<UserType>('/login', args)
+
+  return res.data
+}
+
+export const useLogin = () => {
+  const setIsAuthState = useSetRecoilState(authAtom)
+  return useMutation({
     mutationKey: ['login'],
-    mutationFn: (userAuthData: unknown) => {
-      return rest.post('/login', userAuthData)
+    mutationFn: (variables: LoginArgs) => {
+      return login(variables)
     },
     onSuccess: (data) => {
-      localStorage.setItem(LocalStorageKeysEnum.IS_AUTHORIZED, 'true')
-      rest.defaults.headers.common['Authorization'] = localStorage.getItem(
-        LocalStorageKeysEnum.IS_AUTHORIZED
-      )
+      setIsAuthState(data.id)
     },
   })
+}

@@ -1,17 +1,23 @@
-const fs = require('fs')
-const path = require('path')
+import { readFileSync } from 'fs'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
 
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+import pkg from 'json-server'
+const { create, router: _router, defaults, bodyParser } = pkg
+
+const server = create()
+const router = _router(resolve(__dirname, 'db.json'))
 
 // Set default middlewares (logger, static, cors and no-cache)
-server.use(jsonServer.defaults())
+server.use(defaults())
 
-server.use(jsonServer.bodyParser)
+server.use(bodyParser)
 
 const DB = () =>
-  JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+  JSON.parse(readFileSync(resolve(__dirname, 'db.json'), 'UTF-8'))
 
 // Add custom routes before JSON Server router
 server.post('/login', (req, res) => {
@@ -34,15 +40,11 @@ server.post('/login', (req, res) => {
 
 server.get('/me', (req, res) => {
   try {
-    if (req.headers.authorization) {
-      const id = req.query['id']
+    const id = req.query['id']
 
-      const { password, ...user } = DB().users.find((user) => user.id === id)
+    const { password, ...user } = DB().users.find((user) => user.id === id)
 
-      return res.status(200).json(user)
-    }
-
-    return res.status(403).json({ message: 'Unauthorized' })
+    return res.status(200).json(user)
   } catch (e) {}
 })
 
@@ -58,6 +60,10 @@ server.use((req, res, next) => {
   if (req.method === 'POST') {
     req.body.createdAt = Date.now()
   }
+  if (!req.headers.authorization) {
+    return res.status(403).json({ message: 'Unauthorized' })
+  }
+
   // Continue to JSON Server router
   next()
 })
