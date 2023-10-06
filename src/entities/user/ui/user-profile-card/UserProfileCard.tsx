@@ -2,7 +2,7 @@ import React, { FC, PropsWithChildren } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { useGetCurrentUser } from 'entities/user/api/useUser'
+import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
 import cns from 'entities/user/ui/user-profile-card/UserProfileCard.module.scss'
 
 import cn from 'shared/lib/cn'

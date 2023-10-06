@@ -4,6 +4,7 @@
   background-color: var(--inverted-bg-color);
   position: relative;
   transition: width 0.5s;
+  padding: 0 8px;
 
   &:hover {
     width: var(--sidebar-width);
