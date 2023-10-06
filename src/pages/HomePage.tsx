@@ -11,7 +11,7 @@ const HomePage: FC = () => {
     <div>
       <h1>{t('home')}</h1>
 
-      <UpdatableUserProfileCard userId={'3'} />
+      <UpdatableUserProfileCard />
     </div>
   )
 }

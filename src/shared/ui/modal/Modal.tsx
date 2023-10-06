@@ -57,12 +57,17 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
 
   const dialogClick = (e: SyntheticEvent<HTMLDialogElement>) => {
     if (e.target === dialogRef.current) {
+      console.log('close')
       close()
     }
 
     if (e.target === dialogContentRef.current) {
       console.log('content click')
     }
+  }
+
+  if (!isOpen) {
+    return null
   }
 
   return (
@@ -72,11 +77,15 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
         [cns.modalopen]: isOpen,
       })}
       ref={dialogRef}
-      onClick={dialogClick}
+      onClick={(e) => {
+        e.stopPropagation()
+        dialogClick(e)
+      }}
     >
       <div
         ref={dialogContentRef}
         className={cns.content}
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>

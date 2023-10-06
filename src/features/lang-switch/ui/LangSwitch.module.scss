@@ -1,3 +1,11 @@
 .LangSwitch {
   color: var(--inverted-primary-color);
+  transition: max-width 0.5s;
+  overflow: hidden;
+  max-width: 27px;
+
+  :global(.Sidebar:hover) & {
+    max-width: 60px;
+    transition: max-width 1s;
+  }
 }

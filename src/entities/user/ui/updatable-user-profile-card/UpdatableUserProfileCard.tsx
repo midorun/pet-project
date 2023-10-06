@@ -5,23 +5,21 @@ import { useTranslation } from 'react-i18next'
 import UserProfileCardForm from 'features/update-user-profile-card'
 
 import UserProfileCard from 'entities/user'
-import { useUser } from 'entities/user/model/hooks/useUser'
+import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
 
 import useBooleanState from 'shared/lib/hooks/useBooleanState'
 import Button from 'shared/ui/button/Button'
 import { Loader } from 'shared/ui/loader/Loader'
 
-export type UpdatableUserProfileCardProps = { userId: string }
-
-const UpdatableUserProfileCard: FC<UpdatableUserProfileCardProps> = (props) => {
-  const { userId } = props
+const UpdatableUserProfileCard: FC = (props) => {
+  const {} = props
 
   const { t } = useTranslation()
 
   const [isUpdating, setIsUpdatingToTrue, setIsUpdatingToFalse] =
     useBooleanState(false)
 
-  const { data, isLoading, isError } = useUser(userId)
+  const { data, isLoading, isError } = useGetCurrentUser()
 
   if (isLoading) {
     return <Loader />
@@ -33,12 +31,11 @@ const UpdatableUserProfileCard: FC<UpdatableUserProfileCardProps> = (props) => {
 
   return isUpdating ? (
     <UserProfileCardForm
-      userId={userId}
       defaultValues={data}
       onUpdateComplete={setIsUpdatingToFalse}
     />
   ) : (
-    <UserProfileCard userId={userId}>
+    <UserProfileCard>
       <Button onClick={setIsUpdatingToTrue}>{t('Редактировать')}</Button>
     </UserProfileCard>
   )

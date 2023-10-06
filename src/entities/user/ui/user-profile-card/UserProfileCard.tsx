@@ -2,25 +2,19 @@ import React, { FC, PropsWithChildren } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { useUser } from 'entities/user/model/hooks/useUser'
+import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
 import cns from 'entities/user/ui/user-profile-card/UserProfileCard.module.scss'
 
 import cn from 'shared/lib/cn'
 import Card from 'shared/ui/card/Card'
 import { Loader } from 'shared/ui/loader/Loader'
 
-export type UserProfileCardProps = {
-  userId?: string
-}
-
-const UserProfileCard: FC<PropsWithChildren<UserProfileCardProps>> = (
-  props
-) => {
-  const { userId, children } = props
+const UserProfileCard: FC<PropsWithChildren> = (props) => {
+  const { children } = props
 
   const { t } = useTranslation()
 
-  const { data, isLoading, isError } = useUser(userId)
+  const { data, isLoading, isError } = useGetCurrentUser()
 
   if (isLoading) {
     return <Loader />

@@ -28,8 +28,7 @@ export const buildPlugins = (
   ]
 
   if (isDev) {
-    plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }))
-    plugins.push(new webpack.HotModuleReplacementPlugin())
+    plugins.push(new ReactRefreshWebpackPlugin({ overlay: true })) //TODO что делает overlay?
     // plugins.push(new BundleAnalyzerPlugin())
   }
 

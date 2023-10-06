@@ -1,49 +1,30 @@
 import React, { FC } from 'react'
 
-import { useTranslation } from 'react-i18next'
-import { NavLink } from 'react-router-dom'
+import NavbarLink from 'widgets/navbar/ui/link'
 
 import { AboutIcon, HomeIcon } from 'shared/assets/icons'
 import cn from 'shared/lib/cn'
 
 import cns from './Navbar.module.scss'
 
-type Props = {
-  isHovered: boolean
-}
-
-const Navbar: FC<Props> = (props) => {
-  const { isHovered } = props
-
-  const { t } = useTranslation()
-
+const Navbar: FC = () => {
   return (
-    <nav
-      className={cn(
-        cns.navbar,
-        { [cns.navbar_hovered]: isHovered, [cns.navbar_unhovered]: !isHovered },
-        []
-      )}
-    >
+    <nav className={cn(cns.navbar)}>
       <ul className={cn(cns.list, {})}>
-        <li className={cn(cns.item, {})}>
-          <NavLink
-            className={cn(cns.link, {})}
-            to={'/home'}
-          >
-            <HomeIcon className={cns.icon} />
-            <span className={cns.linkText}>{t('home')}</span>
-          </NavLink>
-        </li>
-        <li className={cn(cns.item, {})}>
-          <NavLink
-            className={cn(cns.link, {})}
-            to={'/about'}
-          >
-            <AboutIcon className={cns.icon} />
-            <span className={cns.linkText}>{t('about')}</span>
-          </NavLink>
-        </li>
+        <NavbarLink
+          to={'home'}
+          icon={HomeIcon}
+        />
+
+        <NavbarLink
+          to={'about'}
+          icon={AboutIcon}
+        />
+
+        <NavbarLink
+          to={'articles'}
+          icon={AboutIcon}
+        />
       </ul>
     </nav>
   )

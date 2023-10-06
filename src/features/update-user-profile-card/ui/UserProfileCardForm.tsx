@@ -6,10 +6,12 @@ import { useTranslation } from 'react-i18next'
 import { useUpdateUser } from 'features/update-user-profile-card'
 
 import { UserType } from 'entities/user'
+import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
 
 import Button from 'shared/ui/button/Button'
 import Card from 'shared/ui/card/Card'
 import Input from 'shared/ui/input/Input'
+import { Loader } from 'shared/ui/loader/Loader'
 
 type FormValues = Pick<
   UserType,
@@ -17,24 +19,29 @@ type FormValues = Pick<
 >
 
 export type UserProfileCardFormProps = {
-  userId: string
   defaultValues: FormValues
   onUpdateComplete: () => void
 }
 
 const UserProfileCardForm: FC<UserProfileCardFormProps> = (props) => {
-  const { userId, defaultValues, onUpdateComplete } = props
+  const { defaultValues, onUpdateComplete } = props
 
   const { t } = useTranslation()
 
   const updateUser = useUpdateUser()
 
-  const { register, reset, handleSubmit } = useForm<FormValues>({
+  const { register, handleSubmit } = useForm<FormValues>({
     defaultValues,
   })
 
-  const onSubmit: SubmitHandler<FormValues> = (data, event) => {
-    updateUser.mutate({ id: userId, data })
+  const { data: user, isSuccess } = useGetCurrentUser()
+
+  if (!isSuccess) {
+    return <Loader />
+  }
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    updateUser.mutate({ id: user?.id, data })
     onUpdateComplete()
   }
 

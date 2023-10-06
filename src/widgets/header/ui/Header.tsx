@@ -1,40 +1,46 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
 
+import { LoginArgs, useLogin } from 'features/login/api/useLogin'
 import LoginForm from 'features/login/ui/LoginForm'
 
-import { LocalStorageKeysEnum } from 'shared/const/localStorageKeys'
+import { authAtom } from 'entities/user/model/authAtom'
+
 import cn from 'shared/lib/cn'
 import useBooleanState from 'shared/lib/hooks/useBooleanState'
 import { UIVariantEnum } from 'shared/types'
 import Button from 'shared/ui/button/Button'
+import Modal from 'shared/ui/modal/Modal'
 
 import cns from './Header.module.scss'
 
 const Header: FC = () => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
-  const [isAuthorized, setIsAuthorized] = useState(false)
-
-  useEffect(() => {
-    if (localStorage.getItem(LocalStorageKeysEnum.IS_AUTHORIZED)) {
-      setIsAuthorized(true)
-    }
-  }, [localStorage.getItem(LocalStorageKeysEnum.IS_AUTHORIZED)])
+  const [isAuth, setIsAuth] = useRecoilState(authAtom)
 
   const [isModalOpen, setIsModalOpenToTrue, setIsModalOpenToFalse] =
     useBooleanState()
-
-  const buttonTranslationKey = isAuthorized ? 'Выйти' : 'Войти'
+  const buttonTranslationKey = isAuth ? 'Выйти' : 'Войти'
 
   const logout = () => {
-    setIsAuthorized(false)
-    localStorage.removeItem(LocalStorageKeysEnum.IS_AUTHORIZED)
+    setIsAuth('')
   }
+  const login = useLogin()
 
-  const buttonClickHandler = () =>
-    isAuthorized ? logout : setIsModalOpenToTrue
+  const loginHandler = (data: LoginArgs) => {
+    login.mutate(data, {
+      onSuccess: () => {
+        setIsModalOpenToFalse()
+        navigate('/home')
+      },
+    })
+  }
+  const buttonClickHandler = () => (isAuth ? logout : setIsModalOpenToTrue)
 
   return (
     <header className={cn(cns.Header)}>
@@ -45,11 +51,12 @@ const Header: FC = () => {
       >
         {t(buttonTranslationKey)}
       </Button>
-
-      <LoginForm
+      <Modal
         isOpen={isModalOpen}
         onClose={setIsModalOpenToFalse}
-      />
+      >
+        <LoginForm onSubmit={loginHandler} />
+      </Modal>
     </header>
   )
 }
