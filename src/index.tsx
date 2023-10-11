@@ -6,7 +6,6 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 // @ts-ignore
-import RecoilizeDebugger from 'recoilize'
 
 import ThemeProvider from 'app/providers/ThemeProvider'
 import ErrorBoundary from 'app/providers/error-boundary'
@@ -22,7 +21,7 @@ root.render(
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        <RecoilizeDebugger />
+        {/*<RecoilizeDebugger />*/}
         <ThemeProvider>
           <RouterProvider router={router} />
         </ThemeProvider>

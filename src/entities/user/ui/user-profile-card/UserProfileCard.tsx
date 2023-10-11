@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react'
+import React, { FC, PropsWithChildren, useRef } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -7,18 +7,14 @@ import cns from 'entities/user/ui/user-profile-card/UserProfileCard.module.scss'
 
 import cn from 'shared/lib/cn'
 import Card from 'shared/ui/card/Card'
-import { Loader } from 'shared/ui/loader/Loader'
 
 const UserProfileCard: FC<PropsWithChildren> = (props) => {
   const { children } = props
-
   const { t } = useTranslation()
 
-  const { data, isLoading, isError } = useGetCurrentUser()
+  const ref = useRef(null)
 
-  if (isLoading) {
-    return <Loader />
-  }
+  const { data, isLoading, isError } = useGetCurrentUser()
 
   if (isError) {
     return <span>{t('Ошибка сервера')}</span>
@@ -28,18 +24,22 @@ const UserProfileCard: FC<PropsWithChildren> = (props) => {
 
   return (
     <Card className={cn(cns.UserProfileCard)}>
-      {Object.entries(fields).map((entry) => {
-        const [key, value] = entry
-        return (
-          <div
-            key={key}
-            className={cns.dataField}
-          >
-            <span>{key}:</span>
-            <span>{value}</span>
-          </div>
-        )
-      })}
+      <div className={cns.dataField}>
+        <span>{t('username')}:</span>
+        <span>{fields.username}</span>
+      </div>
+      <div className={cns.dataField}>
+        <span>{t('email')}:</span>
+        <span>{fields.email}</span>
+      </div>
+      <div className={cns.dataField}>
+        <span>{t('phone')}:</span>
+        <span>{fields.phone}</span>
+      </div>
+      <div className={cns.dataField}>
+        <span>{t('website')}:</span>
+        <span>{fields.website}</span>
+      </div>
 
       {children}
     </Card>

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import NavbarLink from 'widgets/navbar/ui/link'
 
-import { AboutIcon, HomeIcon } from 'shared/assets/icons'
+import { AboutIcon, ArticlesIcon, HomeIcon } from 'shared/assets/icons'
 import cn from 'shared/lib/cn'
 
 import cns from './Navbar.module.scss'
@@ -23,7 +23,7 @@ const Navbar: FC = () => {
 
         <NavbarLink
           to={'articles'}
-          icon={AboutIcon}
+          icon={ArticlesIcon}
         />
       </ul>
     </nav>

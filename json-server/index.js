@@ -14,6 +14,10 @@ const router = _router(resolve(__dirname, 'db.json'))
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(defaults())
 
+server.use(function (req, res, next) {
+  setTimeout(next, 2000)
+})
+
 server.use(bodyParser)
 
 const DB = () =>

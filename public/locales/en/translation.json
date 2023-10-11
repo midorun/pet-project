@@ -1,8 +1,10 @@
 {
   "about": "About",
+  "articles": "Articles",
   "error-boundary": "error-boundary",
   "home": "Home",
   "lang": "English",
   "not-found-page": "Page not found",
-  "toggle-collapse": "Toggle Collapse"
+  "toggle-collapse": "Toggle Collapse",
+  "username": "Username"
 }
