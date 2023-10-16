@@ -1,2 +1,15 @@
 .Code {
+  display: block;
+  position: relative;
+  padding: 16px 32px;
+  border: 1px solid black;
+
+  .copyIcon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    fill: none;
+    stroke: var(--primary-color);
+    cursor: pointer;
+  }
 }

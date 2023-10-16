@@ -11,18 +11,11 @@ const Text: FC<TextProps> = (props) => {
   const { paragraphs } = props
 
   return (
-    <>
+    <div className={cn(cns.Text)}>
       {paragraphs.map((paragraph, idx) => {
-        return (
-          <p
-            className={cn(cns.Text)}
-            key={idx}
-          >
-            {paragraph}
-          </p>
-        )
+        return <p key={idx}>{paragraph}</p>
       })}
-    </>
+    </div>
   )
 }
 
