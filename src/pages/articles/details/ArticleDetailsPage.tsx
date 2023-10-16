@@ -1,13 +1,22 @@
 import React, { FC } from 'react'
 
-import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
+
+import { ArticleDetails } from 'entities/article'
+import { useGetArticleDetails } from 'entities/article/api/getArticleDetails'
+
+import { Loader } from 'shared/ui/loader/Loader'
 
 const ArticleDetailsPage: FC = (props) => {
   const {} = props
 
-  const { t } = useTranslation()
+  const { id } = useParams() as { id: string }
 
-  return <div>{t('ArticleDetailsPage')}</div>
+  const { data, isSuccess } = useGetArticleDetails(id)
+
+  if (!isSuccess) return <Loader />
+
+  return <ArticleDetails {...data} />
 }
 
 export default ArticleDetailsPage

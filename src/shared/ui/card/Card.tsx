@@ -5,12 +5,21 @@ import { PropsWithClassName } from 'shared/types'
 
 import cns from './Card.module.scss'
 
-type CardProps = {}
+type CardProps = {
+  onClick?: () => void
+}
 
 const Card: FC<PropsWithClassName<PropsWithChildren<CardProps>>> = (props) => {
-  const { children, className } = props
+  const { children, className, onClick } = props
 
-  return <div className={cn(cns.Card, {}, [className])}>{children}</div>
+  return (
+    <div
+      className={cn(cns.Card, {}, [className])}
+      onClick={onClick}
+    >
+      {children}
+    </div>
+  )
 }
 
 export default Card

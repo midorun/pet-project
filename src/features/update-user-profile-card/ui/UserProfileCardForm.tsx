@@ -13,10 +13,7 @@ import Card from 'shared/ui/card/Card'
 import Input from 'shared/ui/input/Input'
 import { Loader } from 'shared/ui/loader/Loader'
 
-type FormValues = Pick<
-  UserType,
-  'name' | 'username' | 'email' | 'phone' | 'website'
->
+type FormValues = Pick<UserType, 'username' | 'email' | 'phone' | 'website'>
 
 export type UserProfileCardFormProps = {
   defaultValues: FormValues
@@ -48,10 +45,6 @@ const UserProfileCardForm: FC<UserProfileCardFormProps> = (props) => {
   return (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          label={t('Имя')}
-          {...register('name')}
-        />
         <Input
           label={t('Логин')}
           {...register('username')}

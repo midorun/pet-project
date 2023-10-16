@@ -27,8 +27,11 @@ const App: FC = () => {
 
       <main className={cn(cns.main)}>
         <Sidebar />
+
         <Suspense fallback={<PageLoader />}>
-          <Outlet />
+          <div className={cn(cns.content)}>
+            <Outlet />
+          </div>
         </Suspense>
       </main>
 
