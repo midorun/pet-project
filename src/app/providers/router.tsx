@@ -5,7 +5,7 @@ import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 
 import { ArticlesPage } from 'pages/articles'
-import ArticleDetailsPage from 'pages/articles/details/ArticleDetailsPage'
+import ArticleDetailsPage from 'pages/articles/details/ui/ArticleDetailsPage'
 import NotFoundPage from 'pages/not-found-page'
 
 import { authAtom } from 'entities/user/model/authAtom'
