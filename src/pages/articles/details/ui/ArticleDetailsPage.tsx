@@ -7,8 +7,9 @@ import { useGetArticleDetails } from 'entities/article/api/getArticleDetails'
 import { Comment } from 'entities/coment'
 import { useGetComments } from 'entities/coment/api/getComments'
 
-import { Loader } from 'shared/ui/loader/Loader'
 import cn from 'shared/lib/cn'
+import { Loader } from 'shared/ui/loader/Loader'
+
 import cns from './ArticleDetailsPage.module.scss'
 
 const ArticleDetailsPage: FC = (props) => {
