@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -88,7 +90,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -153,22 +157,74 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
+      "text": "sdfsdfsdfsdfsdfsdf",
+      "userId": "1",
       "articleId": "1",
-      "userId": "1"
+      "createdAt": 1697654549804,
+      "id": "9y7D93y"
     },
     {
-      "id": "2",
-      "text": "some comment 2",
+      "text": "fsdfsdfsdfsdfsdf",
+      "userId": "1",
       "articleId": "1",
-      "userId": "1"
+      "createdAt": 1697655211867,
+      "id": "2xi7XrH"
     },
     {
-      "id": "3",
-      "text": "some comment 3",
+      "text": "fsdfsdfsdf121111111",
+      "userId": "1",
       "articleId": "1",
-      "userId": "1"
+      "createdAt": 1697655319643,
+      "id": "eg13xSr"
+    },
+    {
+      "text": "fsdfsdf",
+      "userId": "1",
+      "articleId": "1",
+      "createdAt": 1697655367814,
+      "id": "e9TXhHe"
+    },
+    {
+      "text": "wrwerwerwer",
+      "userId": "1",
+      "articleId": "1",
+      "createdAt": 1697655388412,
+      "id": "gFfDq29"
+    },
+    {
+      "text": "oooooooooo",
+      "userId": "1",
+      "articleId": "1",
+      "createdAt": 1697655495468,
+      "id": "B5WxrEk"
+    },
+    {
+      "text": "aaaaaaaaaaa",
+      "userId": "1",
+      "articleId": "1",
+      "createdAt": 1697655551564,
+      "id": "j0W4KS1"
+    },
+    {
+      "text": "bbbbbbbbbbbbbb",
+      "userId": "1",
+      "articleId": "1",
+      "createdAt": 1697655569103,
+      "id": "YyUxSGW"
+    },
+    {
+      "text": "aasdfasdfasdfasdfasdfasdf",
+      "userId": "1",
+      "articleId": "1",
+      "createdAt": 1697791390249,
+      "id": "jo-A-HL"
+    },
+    {
+      "text": "aravaika\n\n",
+      "userId": "1",
+      "articleId": "1",
+      "createdAt": 1697791517751,
+      "id": "JzYsZPY"
     }
   ],
   "users": [

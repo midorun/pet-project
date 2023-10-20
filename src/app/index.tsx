@@ -10,26 +10,18 @@ import Sidebar from 'widgets/sidebar'
 
 import cn from 'shared/lib/cn'
 
-import './styles/index.scss'
-
-import cns from './App.module.scss'
-
 const App: FC = () => {
   const { theme } = useThemeContext()
-
-  // useEffect(() => {
-  //   throw new Error('some error')
-  // }, [])
 
   return (
     <div className={cn('app', {}, [theme])}>
       <Header />
 
-      <main className={cn(cns.main)}>
+      <main className={cn('relative flex')}>
         <Sidebar />
 
         <Suspense fallback={<PageLoader />}>
-          <div className={cn(cns.content)}>
+          <div className={cn('px-4 py-3')}>
             <Outlet />
           </div>
         </Suspense>

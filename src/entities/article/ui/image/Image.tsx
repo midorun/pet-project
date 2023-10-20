@@ -4,15 +4,13 @@ import { ImageBlock } from 'entities/article/model/articleDetails'
 
 import cn from 'shared/lib/cn'
 
-import cns from './Image.module.scss'
-
 export type ImageProps = ImageBlock
 
 const Image: FC<ImageProps> = (props) => {
   const { src, title } = props
 
   return (
-    <div className={cn(cns.Image)}>
+    <div className={cn('flex flex-col items-center')}>
       <img
         src={src}
         alt={title}

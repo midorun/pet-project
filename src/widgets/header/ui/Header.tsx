@@ -15,8 +15,6 @@ import { UIVariantEnum } from 'shared/types'
 import Button from 'shared/ui/button/Button'
 import Modal from 'shared/ui/modal/Modal'
 
-import cns from './Header.module.scss'
-
 const Header: FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -43,10 +41,14 @@ const Header: FC = () => {
   const buttonClickHandler = () => (isAuth ? logout : setIsModalOpenToTrue)
 
   return (
-    <header className={cn(cns.Header)}>
+    <header
+      className={cn(
+        'h-header flex items-start justify-items-start bg-[--inverted-bg-color] p-5'
+      )}
+    >
       <Button
         variant={UIVariantEnum.PRIMARY}
-        className={cn(cns.LoginButton)}
+        className={cn('ml-auto')}
         onClick={buttonClickHandler()}
       >
         {t(buttonTranslationKey)}

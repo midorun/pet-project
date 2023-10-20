@@ -3,11 +3,9 @@ import React, { FC } from 'react'
 import cn from 'shared/lib/cn'
 import { Loader } from 'shared/ui/loader/Loader'
 
-import cns from './PageLoader.module.scss'
-
 const PageLoader: FC = () => {
   return (
-    <div className={cn(cns.PageLoader)}>
+    <div className={cn('flex flex-1 items-center justify-center')}>
       <Loader />
     </div>
   )

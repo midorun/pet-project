@@ -12,8 +12,6 @@ import cn from 'shared/lib/cn'
 import useIsFirstRender from 'shared/lib/hooks/useIsFirstRender'
 import Button from 'shared/ui/button/Button'
 
-import cns from './Modal.module.scss'
-
 type ModalProps = {
   isOpen: boolean
   onClose?: () => void
@@ -72,9 +70,9 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
 
   return (
     <dialog
-      className={cn(cns.modal, {
-        [cns.modalhide]: !isOpen,
-        [cns.modalopen]: isOpen,
+      className={cn('modal', {
+        ['modal_hide']: !isOpen,
+        ['modal_open']: isOpen,
       })}
       ref={dialogRef}
       onClick={(e) => {
@@ -84,7 +82,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
     >
       <div
         ref={dialogContentRef}
-        className={cns.content}
+        className={'content'}
         onClick={(e) => e.stopPropagation()}
       >
         {children}

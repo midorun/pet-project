@@ -7,8 +7,6 @@ import cn from 'shared/lib/cn'
 import Button from 'shared/ui/button/Button'
 import Input from 'shared/ui/input/Input'
 
-import cns from './LoginForm.module.scss'
-
 import { LoginArgs } from '../api/useLogin'
 
 type FormData = LoginArgs
@@ -36,7 +34,7 @@ const LoginForm: FC<Props> = (props) => {
 
   return (
     <form
-      className={cn(cns.LoginForm)}
+      className={cn('flex flex-col')}
       onSubmit={handleSubmit(submit)}
     >
       <Input
