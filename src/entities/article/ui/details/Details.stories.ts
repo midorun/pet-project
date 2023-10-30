@@ -1,11 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import 'app/styles/index.scss'
-import Details from 'entities/article/ui/details/details'
+import Details from './Details'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Details> = {
-  title: '/Article',
+  title: 'entities/article/Details',
   component: Details,
 }
 

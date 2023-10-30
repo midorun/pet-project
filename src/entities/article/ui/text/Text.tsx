@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 
-import { TextBlock } from 'entities/article/model/articleDetails'
-
 import cn from 'shared/lib/cn'
+
+import { TextBlock } from '../../model/articleDetails'
 
 export type TextProps = TextBlock
 

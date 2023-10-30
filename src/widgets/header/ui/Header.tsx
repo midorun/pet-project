@@ -11,7 +11,7 @@ import { authAtom } from 'entities/user/model/authAtom'
 
 import cn from 'shared/lib/cn'
 import useBooleanState from 'shared/lib/hooks/useBooleanState'
-import { UIVariantEnum } from 'shared/types'
+import { UIVariantEnum } from 'shared/model/types'
 import Button from 'shared/ui/button/Button'
 import Modal from 'shared/ui/modal/Modal'
 
@@ -43,7 +43,7 @@ const Header: FC = () => {
   return (
     <header
       className={cn(
-        'h-header flex items-start justify-items-start bg-[--inverted-bg-color] p-5'
+        'flex h-header items-start justify-items-start bg-[--inverted-bg-color] p-5'
       )}
     >
       <Button

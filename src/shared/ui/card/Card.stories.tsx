@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import 'app/styles/index.scss'
-
 import Card from './Card'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import 'app/styles/index.scss'
-import UserProfileCard from 'entities/user/ui/user-profile-card/UserProfileCard'
+import UserProfileCard from './UserProfileCard'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof UserProfileCard> = {

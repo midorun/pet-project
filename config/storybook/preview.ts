@@ -1,3 +1,5 @@
+import { withRouter } from 'storybook-addon-react-router-v6'
+
 import { ThemeValuesEnum } from 'app/providers/ThemeProvider'
 
 import type { Preview } from '@storybook/react'
@@ -15,7 +17,11 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [StyleDecorator, ThemeDecorator(ThemeValuesEnum.LIGHT)],
+  decorators: [
+    StyleDecorator,
+    ThemeDecorator(ThemeValuesEnum.LIGHT),
+    withRouter,
+  ],
 }
 
 export default preview

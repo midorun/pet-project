@@ -13,7 +13,7 @@ const Sidebar: FC = () => {
       id={'sidebar'}
       data-testid={'sidebar'}
       className={cn(
-        'w-sidebar-collapsed hover:w-sidebar group flex flex-col space-y-3 bg-[--inverted-bg-color] px-2 transition-[width] duration-1000'
+        'group flex min-h-screen w-sidebar-collapsed flex-col space-y-3 bg-[--inverted-bg-color] px-2 transition-[width] duration-1000 hover:w-sidebar'
       )}
     >
       <Navbar />

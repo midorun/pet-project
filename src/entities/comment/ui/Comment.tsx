@@ -7,7 +7,7 @@ import { useGetUser } from 'entities/user/api/useGetUser'
 import cn from 'shared/lib/cn'
 import { Loader } from 'shared/ui/loader/Loader'
 
-import { CommentType } from '..'
+import { CommentType } from '../model/comment'
 
 type CommentProps = CommentType
 

@@ -8,7 +8,7 @@ import queryClient from 'app/providers/query-client'
 import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
 
 import cn from 'shared/lib/cn'
-import { PropsWithClassName, UIVariantEnum } from 'shared/types'
+import { PropsWithClassName, UIVariantEnum } from 'shared/model/types'
 import Button from 'shared/ui/button/Button'
 
 import { useCreateComment } from '../api/createComment'

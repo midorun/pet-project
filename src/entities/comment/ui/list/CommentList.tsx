@@ -2,12 +2,11 @@ import { FC } from 'react'
 
 import { useParams } from 'react-router-dom'
 
-import { useGetComments } from 'entities/comment'
-
 import cn from 'shared/lib/cn'
 import Error from 'shared/ui/error/Error'
 import Loader from 'shared/ui/loader/Loader'
 
+import { useGetComments } from '../../api/getComments'
 import Comment from '../Comment'
 
 const CommentList: FC = () => {

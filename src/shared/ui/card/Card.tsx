@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren } from 'react'
 
 import cn from 'shared/lib/cn'
-import { PropsWithClassName } from 'shared/types'
+import { PropsWithClassName } from 'shared/model/types'
 
 type CardProps = {
   onClick?: () => void
@@ -13,7 +13,7 @@ const Card: FC<PropsWithClassName<PropsWithChildren<CardProps>>> = (props) => {
   return (
     <div
       className={cn(
-        'rounded-2xl border border-solid border-[var(--primary-color)] p-4',
+        'rounded-2xl border border-solid border-[var(--primary-color)] p-4 shadow-md',
         {},
         [className]
       )}

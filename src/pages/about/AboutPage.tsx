@@ -2,8 +2,6 @@ import React, { FC } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-// import styles from './index.module.scss'
-
 const AboutPage: FC = () => {
   const { t } = useTranslation('about')
 

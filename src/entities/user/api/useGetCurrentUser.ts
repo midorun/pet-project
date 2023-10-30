@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { useRecoilValue } from 'recoil'
 
-import { authAtom } from 'entities/user/model/authAtom'
-import { UserType } from 'entities/user/model/types'
-
 import rest from 'shared/api'
+
+import { authAtom } from '../model/authAtom'
+import { UserType } from '../model/types'
 
 const getCurrentUser = async (id?: string) => {
   const res = await rest.get<UserType>('/me', { params: { id } })

@@ -3,8 +3,7 @@ import ThemeDecorator from '@storybookConfig/decorators/ThemeDecorator'
 
 import { ThemeValuesEnum } from 'app/providers/ThemeProvider'
 
-import 'app/styles/index.scss'
-import { UIVariantEnum } from 'shared/types'
+import { UIVariantEnum } from 'shared/model/types'
 import Button from 'shared/ui/button/Button'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

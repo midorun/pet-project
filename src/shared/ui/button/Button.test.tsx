@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { UIVariantEnum } from 'shared/types'
+import { UIVariantEnum } from 'shared/model/types'
 
 import Button from './Button'
 
