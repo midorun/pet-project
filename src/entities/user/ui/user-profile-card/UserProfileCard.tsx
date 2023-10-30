@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
 
 import Card from 'shared/ui/card/Card'
+import Loader from 'shared/ui/loader/Loader'
 
 const UserProfileCard: FC<PropsWithChildren> = (props) => {
   const { children } = props
@@ -13,6 +14,10 @@ const UserProfileCard: FC<PropsWithChildren> = (props) => {
   const ref = useRef(null)
 
   const { data, isLoading, isError } = useGetCurrentUser()
+
+  if (isLoading) {
+    return <Loader />
+  }
 
   if (isError) {
     return <span>{t('Ошибка сервера')}</span>

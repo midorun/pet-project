@@ -91,6 +91,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@tanstack/react-query": "^4.30.0",
     "axios": "^1.4.0",
     "i18next": "^22.4.15",
