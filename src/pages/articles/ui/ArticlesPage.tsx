@@ -22,7 +22,7 @@ const ArticlesPage: FC = (props) => {
   }
 
   return (
-    <div className={cn(cns.ArticlesPage)}>
+    <div className={cn('flex gap-4')}>
       {data.map((article) => {
         return (
           <ArticleCard

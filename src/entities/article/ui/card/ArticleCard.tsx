@@ -3,10 +3,7 @@ import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
-import cn from 'shared/lib/cn'
 import Card from 'shared/ui/card'
-
-import cns from './ArticleCard.module.scss'
 
 import { ArticleType } from '../../model/article'
 
@@ -23,9 +20,9 @@ const ArticleСard: FC<ArticleProps> = (props) => {
 
   return (
     <Card onClick={goToDetails}>
-      <div className={cn(cns.ArticleCard)}>
+      <div>
         <img
-          className={cns.image}
+          className={'h-52 w-52'}
           src={img}
           alt={title}
         />

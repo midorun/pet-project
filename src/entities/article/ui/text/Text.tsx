@@ -4,14 +4,13 @@ import { TextBlock } from 'entities/article/model/articleDetails'
 
 import cn from 'shared/lib/cn'
 
-import cns from './Text.module.scss'
 export type TextProps = TextBlock
 
 const Text: FC<TextProps> = (props) => {
   const { paragraphs } = props
 
   return (
-    <div className={cn(cns.Text)}>
+    <div className={cn('space-y-3')}>
       {paragraphs.map((paragraph, idx) => {
         return <p key={idx}>{paragraph}</p>
       })}

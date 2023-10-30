@@ -1,16 +1,14 @@
 import React, { FC } from 'react'
 
-import NavbarLink from 'widgets/navbar/ui/link'
-
 import { AboutIcon, ArticlesIcon, HomeIcon } from 'shared/assets/icons'
 import cn from 'shared/lib/cn'
 
-import cns from './Navbar.module.scss'
+import NavbarLink from './link/NavbarLink'
 
 const Navbar: FC = () => {
   return (
-    <nav className={cn(cns.navbar)}>
-      <ul className={cn(cns.list, {})}>
+    <nav className={cn('flex items-center')}>
+      <ul className={cn('flex flex-col space-y-3')}>
         <NavbarLink
           to={'home'}
           icon={HomeIcon}

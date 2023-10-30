@@ -5,15 +5,15 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
-// @ts-ignore
 
 import ThemeProvider from 'app/providers/ThemeProvider'
 import ErrorBoundary from 'app/providers/error-boundary'
 import queryClient from 'app/providers/query-client'
 import router from 'app/providers/router'
 
-// eslint-disable-next-line
 import 'shared/i18n'
+
+import './index.css'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
 

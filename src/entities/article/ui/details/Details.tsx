@@ -4,8 +4,6 @@ import { ViewsIcon } from 'shared/assets/icons'
 import cn from 'shared/lib/cn'
 import TextWithIcon from 'shared/ui/text-with-icon/TextWithIcon'
 
-import cns from './Details.module.scss'
-
 import {
   ArticleDetailsType,
   ArticleDetailsBlockEnum,
@@ -26,10 +24,10 @@ const Details: FC<ArticleProps> = (props) => {
   const { blocks, createdAt, img, subtitle, title, type, views } = props
 
   return (
-    <div className={cn(cns.Details)}>
-      <div className={cn(cns.heading)}>
+    <div className={cn('flex flex-col')}>
+      <div className={cn('flex flex-col gap-x-3')}>
         <img
-          className={cn(cns.img)}
+          className={cn('w5 h-52 w-52 self-center')}
           src={img}
           alt={title}
         />

@@ -16,14 +16,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     this.state = { hasError: false }
   }
 
-  // eslint-disable-next-line n/handle-callback-err
-  static getDerivedStateFromError(error: any) {
+  static getDerivedStateFromError(error: unknown) {
     // Update state so the next render will show the fallback UI.
     console.log(error)
     return { hasError: true }
   }
 
-  componentDidCatch(error: any, info: { componentStack: any }) {
+  componentDidCatch(error: unknown, info: { componentStack: unknown }) {
     // Example "componentStack":
     //   in ComponentThatThrows (created by App)
     //   in ErrorBoundary (created by App)

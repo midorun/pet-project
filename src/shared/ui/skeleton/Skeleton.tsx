@@ -46,9 +46,14 @@ const Skeleton: ForwardRefRenderFunction<
   return (
     <div
       // style={{ ...childrenRects }}
-      className={cn(cns.Skeleton, { [cns.isLoading]: !!isLoading })}
+      className={cn(
+        'skeleton shadow-[rgb(0 0 0 / 12%)] overflow-hidden rounded shadow-md',
+        {
+          ['is-loading']: !!isLoading,
+        }
+      )}
     >
-      <div className={cn(cns.children)}>{children}</div>
+      <div className={cn('invisible')}>{children}</div>
     </div>
   )
 }

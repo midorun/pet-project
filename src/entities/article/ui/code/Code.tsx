@@ -3,9 +3,6 @@ import React, { FC } from 'react'
 import { CodeBlock } from 'entities/article/model/articleDetails'
 
 import { CopyIcon } from 'shared/assets/icons'
-import cn from 'shared/lib/cn'
-
-import cns from './Code.module.scss'
 
 export type CodeProps = CodeBlock
 
@@ -17,10 +14,10 @@ const Code: FC<CodeProps> = (props) => {
   }
 
   return (
-    <code className={cn(cns.Code)}>
+    <code className="relative block border border-solid border-black px-8 py-4">
       <pre>{code}</pre>
       <CopyIcon
-        className={cn(cns.copyIcon)}
+        className="absolute right-4 top-4 cursor-pointer fill-none stroke-[--primary-color]"
         onClick={copy}
       />
     </code>
