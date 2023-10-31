@@ -8,6 +8,7 @@ import type { Preview } from '@storybook/react'
 import QueryClientDecorator from './decorators/QueryClientDecorator'
 import RecoilDecorator from './decorators/RecoilDecorator'
 import ThemeDecorator from './decorators/ThemeDecorator'
+import ThemeProviderDecorator from './decorators/ThemeProviderDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -20,6 +21,7 @@ const preview: Preview = {
     },
   },
   decorators: [
+    ThemeProviderDecorator(),
     RecoilDecorator(),
     QueryClientDecorator(),
     ThemeDecorator(ThemeValuesEnum.LIGHT),
