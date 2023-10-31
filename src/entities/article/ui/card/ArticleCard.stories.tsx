@@ -1,12 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import 'app/styles/index.scss'
-
 import ArticleСard from './ArticleCard'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof ArticleСard> = {
-  title: 'entities/ArticleCard',
+  title: 'entities/article/ArticleCard',
   component: ArticleСard,
   args: {},
 }

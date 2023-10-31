@@ -4,14 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
-import { LoginArgs, useLogin } from 'features/login/api/useLogin'
-import LoginForm from 'features/login/ui/LoginForm'
+import LoginForm, { LoginArgs, useLogin } from 'features/login'
 
-import { authAtom } from 'entities/user/model/authAtom'
+import { authAtom } from '@entities/user'
 
 import cn from 'shared/lib/cn'
 import useBooleanState from 'shared/lib/hooks/useBooleanState'
-import { UIVariantEnum } from 'shared/types'
+import { UIVariantEnum } from 'shared/model/types'
 import Button from 'shared/ui/button/Button'
 import Modal from 'shared/ui/modal/Modal'
 
@@ -43,7 +42,7 @@ const Header: FC = () => {
   return (
     <header
       className={cn(
-        'h-header flex items-start justify-items-start bg-[--inverted-bg-color] p-5'
+        'flex h-header items-start justify-items-start bg-[--inverted-bg-color] p-5'
       )}
     >
       <Button

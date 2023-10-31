@@ -7,7 +7,7 @@ import React, {
 import { DefaultTFuncReturn } from 'i18next'
 import { FieldError } from 'react-hook-form'
 
-import { PropsWithClassName } from 'shared/types'
+import { PropsWithClassName } from 'shared/model/types'
 
 type InputProps = {
   label?: DefaultTFuncReturn | string

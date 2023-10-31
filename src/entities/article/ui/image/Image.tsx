@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 
-import { ImageBlock } from 'entities/article/model/articleDetails'
-
 import cn from 'shared/lib/cn'
+
+import { ImageBlock } from '../../model/articleDetails'
 
 export type ImageProps = ImageBlock
 

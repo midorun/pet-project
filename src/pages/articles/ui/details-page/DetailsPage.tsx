@@ -11,7 +11,7 @@ import CommentList from 'entities/comment'
 
 import { Loader } from 'shared/ui/loader/Loader'
 
-const ArticleDetailsPage: FC = (props) => {
+const DetailsPage: FC = (props) => {
   const {} = props
 
   const { id } = useParams() as { id: string }
@@ -34,4 +34,4 @@ const ArticleDetailsPage: FC = (props) => {
   )
 }
 
-export default ArticleDetailsPage
+export default DetailsPage

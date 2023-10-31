@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react'
 
 import cn from 'shared/lib/cn'
-import { UIVariantEnum } from 'shared/types'
+import { UIVariantEnum } from 'shared/model/types'
 
 const variants: Record<UIVariantEnum, string> = {
   [UIVariantEnum.PRIMARY]:

@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
 
+import { UpdatableUserProfileCard } from '@entities/user'
 import { useTranslation } from 'react-i18next'
-
-import UpdatableUserProfileCard from 'entities/user/ui/updatable-user-profile-card/UpdatableUserProfileCard'
 
 const HomePage: FC = () => {
   const { t } = useTranslation()

@@ -1,16 +1,16 @@
-import React, { lazy, PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 
+import { authAtom } from '@entities/user'
 import App from 'app'
+import {
+  AboutPage,
+  ArticlesPage,
+  ArticleDetailsPage,
+  HomePage,
+  NotFoundPage,
+} from 'pages'
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
-
-import { ArticlesPage, ArticleDetailsPage } from 'pages/articles'
-import NotFoundPage from 'pages/not-found-page'
-
-import { authAtom } from 'entities/user/model/authAtom'
-
-const About = lazy(async () => await import('pages/AboutPage'))
-const Home = lazy(async () => await import('pages/HomePage'))
 
 const AuthorizedRoute = (props: PropsWithChildren) => {
   const { children } = props
@@ -42,12 +42,12 @@ const router = createBrowserRouter([
           </AuthorizedRoute>
         ),
         children: [
-          { path: 'home', element: <Home /> },
+          { path: 'home', element: <HomePage /> },
           { path: 'articles', element: <ArticlesPage /> },
           { path: 'articles/:id', element: <ArticleDetailsPage /> },
         ],
       },
-      { path: 'about', element: <About /> },
+      { path: 'about', element: <AboutPage /> },
     ],
   },
 ])

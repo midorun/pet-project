@@ -2,10 +2,10 @@ import React, { FC, PropsWithChildren, useRef } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
-
 import Card from 'shared/ui/card/Card'
 import Loader from 'shared/ui/loader/Loader'
+
+import { useGetCurrentUser } from '../../api/useGetCurrentUser'
 
 const UserProfileCard: FC<PropsWithChildren> = (props) => {
   const { children } = props

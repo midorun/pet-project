@@ -1,8 +1,6 @@
+import { authAtom, UserType } from '@entities/user'
 import { useMutation } from '@tanstack/react-query'
 import { useSetRecoilState } from 'recoil'
-
-import { UserType } from 'entities/user'
-import { authAtom } from 'entities/user/model/authAtom'
 
 import rest from 'shared/api'
 

@@ -17,17 +17,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   static getDerivedStateFromError(error: unknown) {
-    // Update state so the next render will show the fallback UI.
     console.log(error)
     return { hasError: true }
   }
 
   componentDidCatch(error: unknown, info: { componentStack: unknown }) {
-    // Example "componentStack":
-    //   in ComponentThatThrows (created by App)
-    //   in ErrorBoundary (created by App)
-    //   in div (created by App)
-    //   in App
     console.log(error, info.componentStack)
   }
 

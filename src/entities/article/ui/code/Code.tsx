@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 
-import { CodeBlock } from 'entities/article/model/articleDetails'
-
 import { CopyIcon } from 'shared/assets/icons'
+
+import { CodeBlock } from '../../model/articleDetails'
 
 export type CodeProps = CodeBlock
 
