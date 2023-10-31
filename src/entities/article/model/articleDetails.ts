@@ -12,6 +12,7 @@ export type Block<T extends ArticleDetailsBlockEnum> = {
 }
 
 export type TextBlock = Block<ArticleDetailsBlockEnum.TEXT> & {
+  title?: string
   paragraphs: string[]
 }
 
