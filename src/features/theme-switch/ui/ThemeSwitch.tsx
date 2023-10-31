@@ -3,11 +3,9 @@ import React, { FC } from 'react'
 import { ThemeValuesEnum, useThemeContext } from 'app/providers/ThemeProvider'
 
 import { ThemeDarkIcon, ThemeLightIcon } from 'shared/assets/icons'
-import { cn } from 'shared/lib/cn'
-import { PropsWithClassName, UIVariantEnum } from 'shared/types'
+import cn from 'shared/lib/cn'
+import { PropsWithClassName, UIVariantEnum } from 'shared/model/types'
 import Button from 'shared/ui/button/Button'
-
-import cns from './ThemeSwitch.module.scss'
 
 const ThemeSwitch: FC<PropsWithClassName> = (props) => {
   const { className } = props
@@ -16,8 +14,8 @@ const ThemeSwitch: FC<PropsWithClassName> = (props) => {
 
   return (
     <Button
-      variant={UIVariantEnum.PRIMARY}
-      className={cn(cns.ThemeSwitch, {}, [className])}
+      variant={UIVariantEnum.SECONDARY}
+      className={cn('', {}, [className])}
       onClick={toggleTheme}
     >
       {theme === ThemeValuesEnum.DARK ? <ThemeDarkIcon /> : <ThemeLightIcon />}

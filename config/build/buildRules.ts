@@ -32,7 +32,7 @@ export const buildRules = (options: BuildOptions): webpack.RuleSetRule[] => {
       ],
       exclude: /node_modules/,
     },
-    buildCssRule(isDev),
+    buildCssRule(),
     buildSVGRule(),
     {
       test: /\.(png|jpe?g|gif|woff|woff2)$/i,

@@ -4,30 +4,26 @@ import { Outlet } from 'react-router-dom'
 
 import { useThemeContext } from 'app/providers/ThemeProvider'
 
+import { Header } from 'widgets/header'
 import PageLoader from 'widgets/page-loader'
 import Sidebar from 'widgets/sidebar'
 
-import { cn } from 'shared/lib/cn'
-
-import './styles/index.scss'
-
-import cns from './App.module.scss'
+import cn from 'shared/lib/cn'
 
 const App: FC = () => {
   const { theme } = useThemeContext()
 
-  // useEffect(() => {
-  //   throw new Error('some error')
-  // }, [])
-
   return (
     <div className={cn('app', {}, [theme])}>
-      <header className={cn(cns.header)}></header>
+      <Header />
 
-      <main className={cn(cns.main)}>
+      <main className={cn('relative flex')}>
         <Sidebar />
+
         <Suspense fallback={<PageLoader />}>
-          <Outlet />
+          <div className={cn('px-4 py-3')}>
+            <Outlet />
+          </div>
         </Suspense>
       </main>
 

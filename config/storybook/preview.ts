@@ -1,9 +1,14 @@
-import { ThemeValuesEnum } from 'app/providers/ThemeProvider'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
-import StyleDecorator from 'shared/storybook/decorators/StyleDecorator'
-import ThemeDecorator from 'shared/storybook/decorators/ThemeDecorator'
+import { ThemeValuesEnum } from 'app/providers/ThemeProvider'
+import '../../src/index.css' // replace with the name of your tailwind css file
 
 import type { Preview } from '@storybook/react'
+
+import QueryClientDecorator from './decorators/QueryClientDecorator'
+import RecoilDecorator from './decorators/RecoilDecorator'
+import ThemeDecorator from './decorators/ThemeDecorator'
+import ThemeProviderDecorator from './decorators/ThemeProviderDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -15,7 +20,13 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [StyleDecorator, ThemeDecorator(ThemeValuesEnum.LIGHT)],
+  decorators: [
+    ThemeProviderDecorator(),
+    RecoilDecorator(),
+    QueryClientDecorator(),
+    ThemeDecorator(ThemeValuesEnum.LIGHT),
+    withRouter,
+  ],
 }
 
 export default preview

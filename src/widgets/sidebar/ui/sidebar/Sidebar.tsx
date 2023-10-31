@@ -1,32 +1,24 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 
 import Navbar from 'widgets/navbar'
 
 import { LangSwitch } from 'features/lang-switch'
 import { ThemeSwitch } from 'features/theme-switch'
 
-import { cn } from 'shared/lib/cn'
-
-import cns from './Sidebar.module.scss'
+import cn from 'shared/lib/cn'
 
 const Sidebar: FC = () => {
-  const [isHovered, setIsHovered] = useState(true)
-
   return (
     <aside
       id={'sidebar'}
       data-testid={'sidebar'}
-      className={cn(cns.Sidebar)}
-      onMouseEnter={() => {
-        setIsHovered(true)
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false)
-      }}
+      className={cn(
+        'group flex min-h-screen w-sidebar-collapsed flex-col space-y-3 bg-[--inverted-bg-color] px-2 transition-[width] duration-1000 hover:w-sidebar'
+      )}
     >
-      <Navbar isHovered={isHovered} />
+      <Navbar />
       <LangSwitch />
-      <ThemeSwitch className={cn(cns.themeSwitch)} />
+      <ThemeSwitch />
     </aside>
   )
 }

@@ -7,6 +7,12 @@
         "ignore": ["after-comment"]
       }
     ],
-    "block-no-empty": null
+    "block-no-empty": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
   }
 }

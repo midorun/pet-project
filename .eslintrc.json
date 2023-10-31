@@ -8,38 +8,41 @@
     "plugin:react/recommended",
     "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:i18next/recommended",
-    "standard-with-typescript",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": [
-      "./tsconfig.json"
-    ]
+    "project": ["./tsconfig.json"]
   },
   "plugins": [
     "react",
     "unused-imports",
     "@tanstack/query",
-    "i18next"
+    "i18next",
+    "@typescript-eslint",
+    "import"
   ],
   "rules": {
-    "@typescript-eslint/no-unused-vars": 1,
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/strict-boolean-expressions": 0,
-    "@typescript-eslint/consistent-type-definitions": 0,
-    "@typescript-eslint/no-misused-promises": 0,
-    "@typescript-eslint/consistent-type-imports": 0,
-
-    "react/react-in-jsx-scope": 0,
-    "react/jsx-first-prop-new-line": [
-      2,
-      "multiline"
+    "@typescript-eslint/restrict-plus-operands": [
+      "error",
+      {
+        "skipCompoundAssignments": true
+      }
     ],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
+
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-first-prop-new-line": ["error", "multiline"],
     "react/jsx-max-props-per-line": [
-      2,
+      "error",
       {
         "maximum": {
           "single": 1,
@@ -52,10 +55,10 @@
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
 
-    "no-trailing-spaces": 0,
-    "unused-imports/no-unused-imports-ts": 1,
+    "no-trailing-spaces": "off",
+    "unused-imports/no-unused-imports-ts": "warn",
     "import/order": [
-      2,
+      "warn",
       {
         "groups": [
           "builtin",
@@ -70,18 +73,34 @@
           { "pattern": "react", "group": "external", "position": "before" },
           { "pattern": "app/**", "group": "internal", "position": "before" },
           { "pattern": "pages/**", "group": "internal", "position": "before" },
-          { "pattern": "widgets/**", "group": "internal", "position": "before" },
-          { "pattern": "features/**", "group": "internal", "position": "before" },
-          { "pattern": "entities/**", "group": "internal", "position": "before" },
+          {
+            "pattern": "widgets/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "features/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@entities/**",
+            "group": "internal",
+            "position": "before"
+          },
           { "pattern": "shared/**", "group": "internal", "position": "before" },
-          { "pattern": "./index.module.scss", "group": "index", "position": "before" }
+          {
+            "pattern": "./index.module.scss",
+            "group": "index",
+            "position": "before"
+          }
         ],
         "alphabetize": { "order": "asc", "caseInsensitive": false },
         "newlines-between": "always",
         "pathGroupsExcludedImportTypes": ["react"]
       }
     ],
-    "react/display-name": 0,
-    "@typescript-eslint/ban-ts-comment": 0
+    "react/display-name": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }
