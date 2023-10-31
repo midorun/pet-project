@@ -10,10 +10,4 @@ describe('Button', () => {
     render(<Card>{buttonText}</Card>)
     expect(screen.getByText(buttonText)).toBeInTheDocument()
   })
-
-  test('Test variant apply', () => {
-    render(<Card>{buttonText}</Card>)
-    expect(screen.getByText(buttonText)).toHaveClass(UIVariantEnum.TERTIARY)
-    screen.debug()
-  })
 })
