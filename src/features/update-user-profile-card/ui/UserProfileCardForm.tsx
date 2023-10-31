@@ -1,12 +1,10 @@
 import React, { FC } from 'react'
 
+import { UserType, useGetCurrentUser } from '@entities/user'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import { useUpdateUser } from 'features/update-user-profile-card'
-
-import { UserType } from 'entities/user'
-import { useGetCurrentUser } from 'entities/user/api/useGetCurrentUser'
 
 import Button from 'shared/ui/button/Button'
 import Card from 'shared/ui/card/Card'

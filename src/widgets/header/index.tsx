@@ -1,3 +1,1 @@
-import Header from 'widgets/header/ui/Header'
-
-export default Header
+export { default as Header } from './ui/Header'

@@ -4,10 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
-import { LoginArgs, useLogin } from 'features/login/api/useLogin'
-import LoginForm from 'features/login/ui/LoginForm'
+import LoginForm, { LoginArgs, useLogin } from 'features/login'
 
-import { authAtom } from 'entities/user/model/authAtom'
+import { authAtom } from '@entities/user'
 
 import cn from 'shared/lib/cn'
 import useBooleanState from 'shared/lib/hooks/useBooleanState'

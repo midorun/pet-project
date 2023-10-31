@@ -84,7 +84,7 @@
             "position": "before"
           },
           {
-            "pattern": "entities/**",
+            "pattern": "@entities/**",
             "group": "internal",
             "position": "before"
           },

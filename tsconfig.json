@@ -13,13 +13,13 @@
     "allowSyntheticDefaultImports": true,
 
     "paths": {
-      "@storybookConfig/*": ["../config/storybook/*"]
-    },
+      "@storybookConfig/*": ["./config/storybook/*"],
+      "@entities/*": ["entities/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
-    },
-  },
-
+      "module": "CommonJS"
+    }
+  }
 }

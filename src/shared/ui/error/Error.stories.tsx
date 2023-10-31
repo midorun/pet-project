@@ -6,12 +6,10 @@ import Error from './Error'
 const meta: Meta<typeof Error> = {
   title: 'shared/Error',
   component: Error,
-  args: {},
 }
 
 export default meta
-
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Error>
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {

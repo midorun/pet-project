@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 
+import { authAtom } from '@entities/user'
 import App from 'app'
 import {
   AboutPage,
@@ -10,8 +11,6 @@ import {
 } from 'pages'
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
-
-import { authAtom } from 'entities/user/model/authAtom'
 
 const AuthorizedRoute = (props: PropsWithChildren) => {
   const { children } = props

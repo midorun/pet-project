@@ -1,4 +1,4 @@
-export const buildCssRule = (isDev: boolean) => {
+export const buildCssRule = () => {
   return {
     test: /\.css$/,
     exclude: /node_modules/,

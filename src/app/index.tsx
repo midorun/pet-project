@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 import { useThemeContext } from 'app/providers/ThemeProvider'
 
-import Header from 'widgets/header'
+import { Header } from 'widgets/header'
 import PageLoader from 'widgets/page-loader'
 import Sidebar from 'widgets/sidebar'
 
