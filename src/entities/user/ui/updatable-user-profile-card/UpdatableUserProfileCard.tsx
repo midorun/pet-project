@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
 
-import { useGetCurrentUser } from '@entities/user'
 import { useTranslation } from 'react-i18next'
 
 import UserProfileCardForm from 'features/update-user-profile-card'
+
+import { useGetCurrentUser } from '@entities/user'
 
 import useBooleanState from 'shared/lib/hooks/useBooleanState'
 import Button from 'shared/ui/button/Button'

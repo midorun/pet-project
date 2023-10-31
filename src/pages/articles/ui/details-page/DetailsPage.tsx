@@ -1,13 +1,11 @@
 import React, { FC } from 'react'
 
+import { useGetArticleDetails, ArticleDetails } from 'entities/article'
+import CommentList from 'entities/comment'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import AddComment from 'features/add-article-comment'
-
-import { ArticleDetails } from 'entities/article'
-import { useGetArticleDetails } from 'entities/article/api/getArticleDetails'
-import CommentList from 'entities/comment'
 
 import { Loader } from 'shared/ui/loader/Loader'
 

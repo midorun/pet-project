@@ -1,10 +1,11 @@
 import { FC, useRef } from 'react'
 
-import { useGetCurrentUser } from '@entities/user'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import queryClient from 'app/providers/query-client'
+
+import { useGetCurrentUser } from '@entities/user'
 
 import cn from 'shared/lib/cn'
 import { PropsWithClassName, UIVariantEnum } from 'shared/model/types'
@@ -12,7 +13,7 @@ import Button from 'shared/ui/button/Button'
 
 import { useCreateComment } from '../api/createComment'
 
-type AddCommentProps = {}
+type AddCommentProps = object
 
 const AddComment: FC<PropsWithClassName<AddCommentProps>> = (props) => {
   const { className } = props

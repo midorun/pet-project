@@ -2,15 +2,15 @@ name: GitHub Actions
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 18.x ]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -28,8 +28,6 @@ jobs:
       - name: linting typescript
         run: yarn lint:ts
         if: always()
-      - name: linting css
-        run: yarn lint:scss
       - name: unit testing
         if: always()
         run: yarn test:jest

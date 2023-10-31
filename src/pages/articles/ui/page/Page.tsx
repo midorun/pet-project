@@ -1,9 +1,8 @@
 import { FC } from 'react'
 
-import { useTranslation } from 'react-i18next'
-
 import { ArticleList } from 'entities/article'
-import { useGetArticles } from 'entities/article/api/getArticles'
+import { useGetArticles } from 'entities/article'
+import { useTranslation } from 'react-i18next'
 
 import cn from 'shared/lib/cn'
 import { Loader } from 'shared/ui/loader/Loader'

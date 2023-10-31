@@ -13,7 +13,7 @@ export type SkeletonProps = {
 const Skeleton: ForwardRefRenderFunction<
   HTMLDivElement,
   PropsWithChildren<SkeletonProps>
-> = (props, ref) => {
+> = (props) => {
   const { isLoading, children } = props
 
   return (
