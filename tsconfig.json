@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
+    "strict": true,
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
@@ -13,7 +14,7 @@
     "allowSyntheticDefaultImports": true,
 
     "paths": {
-      "@storybookConfig/*": ["./config/storybook/*"],
+      "@storybookConfig/*": ["../config/storybook/*"],
       "@entities/*": ["entities/*"]
     }
   },

@@ -48,7 +48,7 @@ const Select: FC<Props> = (props) => {
     >
       <Combobox.Input
         className="relative rounded-lg py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-        displayValue={(option) => option.label}
+        displayValue={(option) => (option as OptionType).label}
         onChange={(event) => setQuery(event.target.value)}
       />
 

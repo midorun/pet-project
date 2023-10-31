@@ -3,9 +3,8 @@ import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import cn from 'shared/lib/cn'
-import Select from 'shared/ui/select/Select'
 
-type FiltersProps = {}
+type FiltersProps = object
 
 const Filters: FC<FiltersProps> = (props) => {
   const {} = props
@@ -15,7 +14,6 @@ const Filters: FC<FiltersProps> = (props) => {
     <div className={cn('')}>
       <div>
         <span>{t('Сортировать по')}</span>
-        <Select />
       </div>
     </div>
   )

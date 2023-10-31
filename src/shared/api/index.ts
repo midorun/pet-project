@@ -15,7 +15,7 @@ rest.interceptors.request.use(
 
     return config
   },
-  async (error) => {}
+  async () => {}
 )
 
 rest.interceptors.response.use(

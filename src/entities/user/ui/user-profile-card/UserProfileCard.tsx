@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useRef } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -10,8 +10,6 @@ import { useGetCurrentUser } from '../../api/useGetCurrentUser'
 const UserProfileCard: FC<PropsWithChildren> = (props) => {
   const { children } = props
   const { t } = useTranslation()
-
-  const ref = useRef(null)
 
   const { data, isLoading, isError } = useGetCurrentUser()
 
