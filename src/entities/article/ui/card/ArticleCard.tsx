@@ -16,8 +16,6 @@ const ArticleСard: FC<ArticleProps> = (props) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
-  console.log(type)
-
   const goToDetails = () => {
     navigate(id)
   }
