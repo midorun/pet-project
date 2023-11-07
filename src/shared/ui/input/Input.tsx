@@ -7,6 +7,7 @@ import React, {
 import { DefaultTFuncReturn } from 'i18next'
 import { FieldError } from 'react-hook-form'
 
+import cn from 'shared/lib/cn'
 import { PropsWithClassName } from 'shared/model/types'
 
 type InputProps = {
@@ -18,13 +19,14 @@ const Input: ForwardRefRenderFunction<
   HTMLInputElement,
   PropsWithClassName<InputProps>
 > = (props, ref) => {
-  const { error, label, ...rest } = props
+  const { error, label, className, ...rest } = props
 
   return (
-    <div className="flex flex-col py-1">
+    <div className={cn('flex w-min flex-col py-1')}>
       <div className="flex items-center gap-y-1">
         <label>{label}</label>
         <input
+          className={cn('border px-2 py-1', {}, [className])}
           ref={ref}
           {...rest}
         />

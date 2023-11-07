@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "develop": "webpack serve --env mode=development port=3000 apiBaseUrl='http://localhost:8000/'",
-    "json-server": "nodemon ./json-server/index.js",
+    "develop-front": "webpack serve --env mode=development port=3000 apiBaseUrl='http://localhost:8000/'",
+    "develop-back": "nodemon ./json-server/index.js",
+    "develop": "conc npm:develop-*",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
@@ -48,6 +49,7 @@
     "autoprefixer": "^10.4.16",
     "babel-jest": "^29.5.0",
     "chromatic": "^6.19.9",
+    "concurrently": "^8.2.2",
     "css-loader": "^6.7.3",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
@@ -91,7 +93,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.17",
     "@tanstack/react-query": "^4.30.0",
     "axios": "^1.4.0",
     "i18next": "^22.4.15",
@@ -102,7 +103,6 @@
     "react-hook-form": "^7.45.2",
     "react-i18next": "^12.2.0",
     "react-router-dom": "^6.8.1",
-    "react-select": "^5.7.7",
     "recoil": "^0.7.7"
   },
   "_id": "ulbi@1.0.0"

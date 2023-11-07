@@ -32,4 +32,9 @@
   p {
     color: var(--inverted-primary-color);
   }
+
+  svg {
+    fill: var(--inverted-primary-color);
+    stroke: var(--inverted-primary-color);
+  }
 }

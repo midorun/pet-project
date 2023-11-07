@@ -14,7 +14,7 @@ import Text from '../text/Text'
 
 export type ArticleProps = ArticleDetailsType
 
-const blocksMap = {
+export const blocksMap = {
   [ArticleDetailsBlockEnum.TEXT]: Text,
   [ArticleDetailsBlockEnum.CODE]: Code,
   [ArticleDetailsBlockEnum.IMAGE]: Image,
