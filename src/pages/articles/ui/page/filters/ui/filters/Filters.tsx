@@ -5,11 +5,10 @@ import { useRecoilState } from 'recoil'
 
 import cn from 'shared/lib/cn'
 import { useDebouncedCb } from 'shared/lib/hooks/useDebouncedCb'
-import { setQueryParams } from 'shared/lib/set-query-params/setQueryParams'
 import Input from 'shared/ui/input/Input'
 import Select from 'shared/ui/select/Select'
 
-import { articlesFiltersAtom } from '../model/filtersAtom'
+import { articlesFiltersAtom } from '../../model/filtersAtom'
 
 type FiltersProps = object
 
@@ -30,7 +29,7 @@ const Filters: FC<FiltersProps> = (props) => {
 
   const [filtersState, setFiltersState] = useRecoilState(articlesFiltersAtom)
 
-  const [search, setSearch] = useState(filtersState.title)
+  const [search, setSearch] = useState(filtersState.title ?? '')
 
   useDebouncedCb(() => {
     setFiltersState({
@@ -49,7 +48,6 @@ const Filters: FC<FiltersProps> = (props) => {
       sort: 'createdAt',
       title: '',
     })
-    setQueryParams(filtersState)
   }, [])
 
   return (
