@@ -10,7 +10,7 @@ import { FieldError } from 'react-hook-form'
 import cn from 'shared/lib/cn'
 import { PropsWithClassName } from 'shared/model/types'
 
-type InputProps = {
+export type InputProps = {
   label?: DefaultTFuncReturn | string
   error?: FieldError
 } & InputHTMLAttributes<HTMLInputElement>
