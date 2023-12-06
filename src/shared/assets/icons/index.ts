@@ -1,4 +1,5 @@
 import AboutIcon from './about.svg'
+import ArrowDownIcon from './arrow-down.svg'
 import ArticlesIcon from './articles.svg'
 import CopyIcon from './copy.svg'
 import HomeIcon from './home.svg'
@@ -20,4 +21,5 @@ export {
   ViewsIcon,
   TileIcon,
   ListIcon,
+  ArrowDownIcon,
 }

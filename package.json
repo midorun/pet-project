@@ -94,7 +94,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.30.0",
-    "axios": "^1.4.0",
+    "axios": "^1.6.2",
     "i18next": "^22.4.15",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",
@@ -103,6 +103,7 @@
     "react-hook-form": "^7.45.2",
     "react-i18next": "^12.2.0",
     "react-router-dom": "^6.8.1",
+    "react-select": "^5.8.0",
     "recoil": "^0.7.7"
   },
   "_id": "ulbi@1.0.0"
