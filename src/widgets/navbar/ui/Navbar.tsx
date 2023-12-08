@@ -7,7 +7,10 @@ import NavbarLink from './link/NavbarLink'
 
 const Navbar: FC = () => {
   return (
-    <nav className={cn('flex items-center')}>
+    <nav
+      data-testid={'navbar'}
+      className={cn('flex items-center')}
+    >
       <ul className={cn('flex flex-col space-y-3')}>
         <NavbarLink
           to={'home'}
