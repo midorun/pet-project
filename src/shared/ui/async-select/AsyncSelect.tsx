@@ -23,7 +23,7 @@ const SelectV2 = <
 >(
   props: Props<Option, IsMulti, Group>
 ) => {
-  const { myCustomProp, loadOptions } = props
+  const { loadOptions } = props
   const { t } = useTranslation()
 
   return <ReactSelect {...props} />

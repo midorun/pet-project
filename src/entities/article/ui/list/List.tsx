@@ -35,10 +35,11 @@ const List: FC = () => {
     >
       {data.map((item) => {
         return (
+          // @ts-expect-error
           <ArticleCard
+            {...item}
             isDisplayTile={isDisplayTile}
             key={item.id}
-            {...item}
           />
         )
       })}

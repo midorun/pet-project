@@ -48,6 +48,7 @@ const Filters: FC = () => {
   const { order, sort, title } = watch()
 
   useEffect(() => {
+    // @ts-expect-error
     setArticlesFilters({ ...articleFilters, order, sort })
   }, [order, sort])
 

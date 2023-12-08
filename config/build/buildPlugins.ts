@@ -6,6 +6,8 @@ import { BuildOptions } from '../types'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 export const buildPlugins = (
   options: BuildOptions
@@ -28,8 +30,9 @@ export const buildPlugins = (
   ]
 
   if (isDev) {
-    plugins.push(new ReactRefreshWebpackPlugin({ overlay: true })) //TODO что делает overlay?
+    plugins.push(new ReactRefreshWebpackPlugin({ overlay: false })) //TODO что делает overlay?
     // plugins.push(new BundleAnalyzerPlugin())
+    plugins.push(new ForkTsCheckerWebpackPlugin())
   }
 
   return plugins
