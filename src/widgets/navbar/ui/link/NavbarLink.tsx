@@ -13,7 +13,7 @@ export type NavbarLinkProps = {
 
 const NavbarLink: FC<NavbarLinkProps> = (props) => {
   const { to, translationKey = to, icon } = props
-
+  
   const { t } = useTranslation()
 
   return (

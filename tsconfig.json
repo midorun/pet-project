@@ -1,27 +1,24 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "strict": true,
-    "jsx": "react-jsx",
     "allowJs": true,
-    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2020",
     "paths": {
       "@storybookConfig/*": ["../config/storybook/*"],
       "@entities/*": ["entities/*"]
     }
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
   }
+  // "ts-node": {
+  //   "compilerOptions": {
+  //     "module": "CommonJS"
+  //   }
+  // }
 }
