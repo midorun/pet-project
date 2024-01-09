@@ -1,14 +1,16 @@
-import AboutIcon from './about.svg'
-import ArrowDownIcon from './arrow-down.svg'
-import ArticlesIcon from './articles.svg'
-import CopyIcon from './copy.svg'
-import HomeIcon from './home.svg'
-import ListIcon from './list.svg'
-import ProfileIcon from './profile.svg'
-import ThemeDarkIcon from './theme-dark.svg'
-import ThemeLightIcon from './theme-light.svg'
-import TileIcon from './tile.svg'
-import ViewsIcon from './views.svg'
+/// <reference types="vite-plugin-svgr/client" />
+
+import AboutIcon from './about.svg?react'
+import ArrowDownIcon from './arrow-down.svg?react'
+import ArticlesIcon from './articles.svg?react'
+import CopyIcon from './copy.svg?react'
+import HomeIcon from './home.svg?react'
+import ListIcon from './list.svg?react'
+import ProfileIcon from './profile.svg?react'
+import ThemeDarkIcon from './theme-dark.svg?react'
+import ThemeLightIcon from './theme-light.svg?react'
+import TileIcon from './tile.svg?react'
+import ViewsIcon from './views.svg?react'
 
 export {
   AboutIcon,
