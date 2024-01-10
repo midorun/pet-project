@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
@@ -22,11 +21,12 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         {/* <RecoilizeDebugger /> */}
+
         <ThemeProvider>
           <RouterProvider router={router} />
         </ThemeProvider>
       </RecoilRoot>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   </ErrorBoundary>
 )

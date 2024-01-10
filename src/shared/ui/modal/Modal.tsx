@@ -1,95 +1,43 @@
-import React, {
-  FC,
-  PropsWithChildren,
-  SyntheticEvent,
-  useEffect,
-  useRef,
-} from 'react'
+import * as React from 'react'
+import { FC, PropsWithChildren } from 'react'
 
-import { t } from 'i18next'
+import Modal from '@mui/joy/Modal'
+import ModalClose from '@mui/joy/ModalClose'
+import Sheet from '@mui/joy/Sheet'
 
-import cn from 'shared/lib/cn'
-import useIsFirstRender from 'shared/lib/hooks/useIsFirstRender'
-import Button from 'shared/ui/button/Button'
-
-type ModalProps = {
+type Props = {
   isOpen: boolean
   onClose?: () => void
 }
 
-const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
-  const { isOpen, onClose, children } = props
-
-  const dialogRef = useRef<HTMLDialogElement>(null)
-  const dialogContentRef = useRef<HTMLDivElement>(null)
-
-  const isFirstRender = useIsFirstRender()
-
-  useEffect(() => {
-    if (isOpen) {
-      open()
-    }
-
-    if (!(isFirstRender || isOpen)) {
-      close()
-    }
-  }, [isOpen])
-
-  const open = () => {
-    dialogRef.current?.showModal()
-  }
-
-  const close = () => {
-    onClose?.()
-
-    const dialog = dialogRef.current
-
-    dialog?.addEventListener(
-      'animationend',
-      () => {
-        dialog.close()
-      },
-      { once: true }
-    )
-  }
-
-  const dialogClick = (e: SyntheticEvent<HTMLDialogElement>) => {
-    if (e.target === dialogRef.current) {
-      console.log('close')
-      close()
-    }
-
-    if (e.target === dialogContentRef.current) {
-      console.log('content click')
-    }
-  }
-
-  if (!isOpen) {
-    return null
-  }
+const BasicModal: FC<PropsWithChildren<Props>> = (props) => {
+  const { children, isOpen, onClose } = props
 
   return (
-    <dialog
-      className={cn('modal', {
-        ['modal_hide']: !isOpen,
-        ['modal_open']: isOpen,
-      })}
-      ref={dialogRef}
-      onClick={(e) => {
-        e.stopPropagation()
-        dialogClick(e)
-      }}
+    <Modal
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+      open={isOpen}
+      onClose={onClose}
+      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
     >
-      <div
-        ref={dialogContentRef}
-        className={'content'}
-        onClick={(e) => e.stopPropagation()}
+      <Sheet
+        variant="outlined"
+        sx={{
+          maxWidth: 500,
+          borderRadius: 'md',
+          p: 3,
+          boxShadow: 'lg',
+        }}
       >
+        <ModalClose
+          variant="plain"
+          sx={{ m: 1 }}
+        />
         {children}
-      </div>
-      <Button onClick={close}>{t('close-modal')}</Button>
-    </dialog>
+      </Sheet>
+    </Modal>
   )
 }
 
-export default Modal
+export default BasicModal

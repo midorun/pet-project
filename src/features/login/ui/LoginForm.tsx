@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 
+import { Sheet, Typography, Button, Stack } from '@mui/joy'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import cn from 'shared/lib/cn'
-import Button from 'shared/ui/button/Button'
-import Input from 'shared/ui/input/Input'
+import { required } from 'shared/const/RHF-rules'
+import TextFieldController from 'shared/ui/text-field/TextFieldController'
 
 import { LoginArgs } from '../api/useLogin'
 
@@ -21,44 +21,52 @@ const LoginForm: FC<Props> = (props) => {
   const { t } = useTranslation()
 
   const {
-    register,
     handleSubmit,
-    formState: { errors },
+    control,
+    formState: { isSubmitting },
   } = useForm<FormData>()
 
-  const submit = (data: FormData) => {
-    onSubmit(data)
+  const submit = async (data: FormData) => {
+    await onSubmit(data)
   }
 
-  const required = t('Обязательное поле')
-
   return (
-    <form
-      className={cn('flex flex-col')}
-      onSubmit={handleSubmit(submit)}
-    >
-      <Input
-        {...register('username', {
-          required,
-        })}
-        error={errors.username}
-      />
+    <Sheet className="mx-auto mt-4 flex w-[300px] flex-col gap-2 rounded-sm">
+      <div>
+        <Typography
+          level="h4"
+          component="h1"
+        >
+          {t('Sign in to continue')}
+        </Typography>
+      </div>
 
-      <Input
-        type={'password'}
-        {...register('password', {
-          required,
-        })}
-        error={errors.password}
-      />
+      <form onSubmit={handleSubmit(submit)}>
+        <Stack spacing={2}>
+          <TextFieldController
+            name="username"
+            control={control}
+            placeholder="admin"
+            rules={{ required }}
+          />
 
-      <Button
-        // disabled={Boolean(errors)}
-        type={'submit'}
-      >
-        {t('Вход')}
-      </Button>
-    </form>
+          <TextFieldController
+            control={control}
+            name="password"
+            type="password"
+            placeholder="password"
+            rules={{ required }}
+          />
+
+          <Button
+            loading={isSubmitting}
+            type="submit"
+          >
+            {t('Войти')}
+          </Button>
+        </Stack>
+      </form>
+    </Sheet>
   )
 }
 

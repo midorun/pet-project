@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 
+import { Button } from '@mui/joy'
 import { useTranslation } from 'react-i18next'
 
 import UserProfileCardForm from 'features/update-user-profile-card'
@@ -7,8 +8,6 @@ import UserProfileCardForm from 'features/update-user-profile-card'
 import { useGetCurrentUser } from '@entities/user'
 
 import useBooleanState from 'shared/lib/hooks/useBooleanState'
-import Button from 'shared/ui/button/Button'
-import Skeleton from 'shared/ui/skeleton/Skeleton'
 
 import { UserType } from '../../model/types'
 import UserProfileCard from '../user-profile-card/UserProfileCard'
@@ -31,7 +30,7 @@ const UpdatableUserProfileCard: FC = (props) => {
   const data = queryResult.data as UserType
 
   return (
-    <Skeleton isLoading={isLoading}>
+    <>
       {isUpdating ? (
         <UserProfileCardForm
           defaultValues={data}
@@ -42,7 +41,7 @@ const UpdatableUserProfileCard: FC = (props) => {
           <Button onClick={setIsUpdatingToTrue}>{t('Редактировать')}</Button>
         </UserProfileCard>
       )}
-    </Skeleton>
+    </>
   )
 }
 

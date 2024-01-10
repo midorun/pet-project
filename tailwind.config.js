@@ -3,7 +3,7 @@ module.exports = {
   content: ['./src/**/*.tsx'],
   theme: {
     fontFamily: {
-      sans: ['SF Pro Display', 'sans-serif'],
+      sans: ['Inter', 'sans-serif'],
     },
     extend: {
       height: {

@@ -4,6 +4,7 @@ import AboutIcon from './about.svg?react'
 import ArrowDownIcon from './arrow-down.svg?react'
 import ArticlesIcon from './articles.svg?react'
 import CopyIcon from './copy.svg?react'
+import CrossIcon from './cross.svg?react'
 import HomeIcon from './home.svg?react'
 import ListIcon from './list.svg?react'
 import ProfileIcon from './profile.svg?react'
@@ -16,6 +17,7 @@ export {
   AboutIcon,
   ArticlesIcon,
   CopyIcon,
+  CrossIcon,
   HomeIcon,
   ProfileIcon,
   ThemeDarkIcon,
