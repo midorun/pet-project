@@ -13,25 +13,23 @@ export type NavbarLinkProps = {
 
 const NavbarLink: FC<NavbarLinkProps> = (props) => {
   const { to, translationKey = to, icon } = props
-  
+
   const { t } = useTranslation()
 
   return (
-    <li>
-      <NavLink
-        className={cn('flex cursor-pointer')}
-        to={to}
+    <NavLink
+      className={cn('flex cursor-pointer')}
+      to={to}
+    >
+      {icon({ className: 'mr-4 fill-[--inverted-primary-color]' })}
+      <span
+        className={
+          'text-[0px] transition-[font-size] duration-500 group-hover:text-sm'
+        }
       >
-        {icon({ className: 'mr-4 fill-[--inverted-primary-color]' })}
-        <span
-          className={
-            'text-[0px] transition-[font-size] duration-500 group-hover:text-sm'
-          }
-        >
-          {t(translationKey)}
-        </span>
-      </NavLink>
-    </li>
+        {t(translationKey)}
+      </span>
+    </NavLink>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 
+import { Button } from '@mui/joy'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -7,10 +8,9 @@ import { useUpdateUser } from 'features/update-user-profile-card'
 
 import { UserType, useGetCurrentUser } from '@entities/user'
 
-import Button from 'shared/ui/button/Button'
 import Card from 'shared/ui/card/Card'
-import Input from 'shared/ui/input/Input'
 import { Loader } from 'shared/ui/loader/Loader'
+import Input from 'shared/ui/text-field/TextField'
 
 type FormValues = Pick<UserType, 'username' | 'email' | 'phone' | 'website'>
 

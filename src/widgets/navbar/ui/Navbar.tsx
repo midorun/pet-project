@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 
+import { List, ListItem } from '@mui/joy'
+
 import { AboutIcon, ArticlesIcon, HomeIcon } from 'shared/assets/icons'
 import cn from 'shared/lib/cn'
 
@@ -11,22 +13,30 @@ const Navbar: FC = () => {
       data-testid={'navbar'}
       className={cn('flex items-center')}
     >
-      <ul className={cn('flex flex-col space-y-3')}>
-        <NavbarLink
-          to={'home'}
-          icon={HomeIcon}
-        />
-
-        <NavbarLink
-          to={'about'}
-          icon={AboutIcon}
-        />
-
-        <NavbarLink
-          to={'articles'}
-          icon={ArticlesIcon}
-        />
-      </ul>
+      <List
+      // sx={{
+      //   maxWidth: 320,
+      // }}
+      >
+        <ListItem>
+          <NavbarLink
+            to="home"
+            icon={HomeIcon}
+          />
+        </ListItem>
+        <ListItem>
+          <NavbarLink
+            to="articles"
+            icon={ArticlesIcon}
+          />
+        </ListItem>
+        <ListItem>
+          <NavbarLink
+            to="about"
+            icon={AboutIcon}
+          />
+        </ListItem>
+      </List>
     </nav>
   )
 }

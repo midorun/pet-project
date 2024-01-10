@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import Input from 'shared/ui/input/Input'
+import Input from 'shared/ui/text-field/TextField'
 
 const meta: Meta<typeof Input> = {
   title: 'widgets/Input',

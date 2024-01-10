@@ -9,8 +9,6 @@ const HomePage: FC = () => {
 
   return (
     <div>
-      <h1>{t('home')}</h1>
-
       <UpdatableUserProfileCard />
     </div>
   )

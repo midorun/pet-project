@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { Button, Sheet } from '@mui/joy'
+import { Button } from '@mui/joy'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
@@ -9,11 +9,10 @@ import LoginForm, { LoginArgs, useLogin } from 'features/login'
 
 import { authAtom } from '@entities/user'
 
-import cn from 'shared/lib/cn'
 import useBooleanState from 'shared/lib/hooks/useBooleanState'
 import BasicModal from 'shared/ui/modal/Modal'
 
-const Header: FC = () => {
+const Login: FC = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
@@ -39,35 +38,16 @@ const Header: FC = () => {
   const buttonClickHandler = () => (isAuth ? logout : setIsModalOpenToTrue)
 
   return (
-    <Sheet
-      variant="outlined"
-      sx={{
-        mx: -6,
-        borderLeft: 'none',
-      }}
-    >
-      <header
-        className={cn(
-          'flex h-header items-center justify-items-start bg-[--inverted-bg-color] px-12'
-        )}
+    <>
+      <Button onClick={buttonClickHandler()}>{t(buttonTranslationKey)}</Button>
+      <BasicModal
+        isOpen={isModalOpen}
+        onClose={setIsModalOpenToFalse}
       >
-        <Button
-          sx={{
-            ml: 'auto',
-          }}
-          onClick={buttonClickHandler()}
-        >
-          {t(buttonTranslationKey)}
-        </Button>
-        <BasicModal
-          isOpen={isModalOpen}
-          onClose={setIsModalOpenToFalse}
-        >
-          <LoginForm onSubmit={loginHandler} />
-        </BasicModal>
-      </header>
-    </Sheet>
+        <LoginForm onSubmit={loginHandler} />
+      </BasicModal>
+    </>
   )
 }
 
-export default Header
+export default Login

@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil'
 
 import cn from 'shared/lib/cn'
 import { useDebouncedCb } from 'shared/lib/hooks/useDebouncedCb'
-import InputController from 'shared/ui/input/InputController'
+import TextFieldController from 'shared/ui/text-field/TextFieldController'
 import SelectController from 'shared/ui/select/SelectController'
 
 import { articlesFiltersAtom } from '../../model/filtersAtom'
@@ -78,7 +78,7 @@ const Filters: FC = () => {
 
       <div className="flex items-center space-x-1">
         <span>{t('Название')}</span>
-        <InputController
+        <TextFieldController
           control={control}
           name="title"
           placeholder="Введите название"

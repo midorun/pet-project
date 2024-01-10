@@ -1,10 +1,11 @@
 import { FC } from 'react'
+import React from 'react'
 
+import { Button } from '@mui/joy'
 import { useRecoilState } from 'recoil'
 
 import { ListIcon, TileIcon } from 'shared/assets/icons'
 import cn from 'shared/lib/cn'
-import Button from 'shared/ui/button/Button'
 
 import { displayAtom } from '../model/displayAtom'
 
