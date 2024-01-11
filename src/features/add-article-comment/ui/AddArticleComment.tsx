@@ -1,5 +1,7 @@
 import { FC, useRef } from 'react'
+import React from 'react'
 
+import { Box, Button, Divider, FormControl, Textarea } from '@mui/joy'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
@@ -7,9 +9,7 @@ import queryClient from 'app/providers/query-client'
 
 import { useGetCurrentUser } from '@entities/user'
 
-import cn from 'shared/lib/cn'
-import { PropsWithClassName, UIVariantEnum } from 'shared/model/types'
-import Button from 'shared/ui/button/Button'
+import { PropsWithClassName } from 'shared/model/types'
 
 import { useCreateComment } from '../api/createComment'
 
@@ -41,25 +41,35 @@ const AddComment: FC<PropsWithClassName<AddCommentProps>> = (props) => {
   }
 
   return (
-    <div
-      className={cn(
-        'flex flex-1 justify-between space-x-3 border border-solid p-4',
-        {},
-        [className]
-      )}
-    >
-      <textarea
-        className="w-full outline-none"
+    <FormControl>
+      <Textarea
+        minRows={3}
+        variant="outlined"
         placeholder={t('Введите текст комментария') as string}
-        ref={ref}
-      ></textarea>
-      <Button
-        variant={UIVariantEnum.PRIMARY}
-        onClick={postComment}
-      >
-        {t('Отправить')}
-      </Button>
-    </div>
+        slotProps={{
+          textarea: { ref },
+        }}
+        endDecorator={
+          <Box
+            gap={1}
+            display={'flex'}
+            flexDirection={'column'}
+            flex={'auto'}
+          >
+            <Divider />
+            <Button
+              size="lg"
+              sx={{
+                ml: 'auto',
+              }}
+              onClick={postComment}
+            >
+              {t('Отправить')}
+            </Button>
+          </Box>
+        }
+      />
+    </FormControl>
   )
 }
 

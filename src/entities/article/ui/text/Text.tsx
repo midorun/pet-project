@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import cn from 'shared/lib/cn'
+import { Card, Typography } from '@mui/joy'
 
 import { TextBlock } from '../../model/articleDetails'
 
@@ -10,11 +10,19 @@ const Text: FC<TextProps> = (props) => {
   const { paragraphs } = props
 
   return (
-    <div className={cn('space-y-3')}>
+    <Card>
       {paragraphs.map((paragraph, idx) => {
-        return <p key={idx}>{paragraph}</p>
+        return (
+          <Typography
+            level="body-md"
+            key={idx}
+            mt={2}
+          >
+            {paragraph}
+          </Typography>
+        )
       })}
-    </div>
+    </Card>
   )
 }
 
