@@ -17,7 +17,8 @@ const App: FC = () => {
       <Stack
         sx={{
           px: 6,
-          pt: 4,
+          py: 4,
+
           width: '100%',
           border: 'none',
         }}

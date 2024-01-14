@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 
+import { Stack, Typography } from '@mui/joy'
 import { useGetArticleDetails, ArticleDetails } from 'entities/article'
 import CommentList from 'entities/comment'
 import { useTranslation } from 'react-i18next'
@@ -20,15 +21,15 @@ const DetailsPage: FC = (props) => {
   if (!isSuccess) return <Loader />
 
   return (
-    <>
+    <Stack gap={4}>
       <ArticleDetails {...data} />
 
-      <h3>{t('Комментарии')}</h3>
+      <Typography level="title-lg">{t('Комментарии')}</Typography>
 
       <AddComment className="mb-3" />
 
       <CommentList />
-    </>
+    </Stack>
   )
 }
 

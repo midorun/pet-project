@@ -1,8 +1,9 @@
 import { FC } from 'react'
 
+import { Card, Typography } from '@mui/joy'
+
 import { useGetUser } from '@entities/user'
 
-import cn from 'shared/lib/cn'
 import { Loader } from 'shared/ui/loader/Loader'
 
 import { CommentType } from '../model/comment'
@@ -23,14 +24,10 @@ const Comment: FC<CommentProps> = (props) => {
   }
 
   return (
-    <div
-      className={cn(
-        'flex flex-col border border-solid border-[var(--primary-color)] p-5'
-      )}
-    >
-      <span>{data?.username}</span>
-      <span>{text}</span>
-    </div>
+    <Card>
+      <Typography>{data.username}</Typography>
+      <Typography>{text}</Typography>
+    </Card>
   )
 }
 

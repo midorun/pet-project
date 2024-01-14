@@ -2,8 +2,8 @@ import { FC } from 'react'
 
 import { useRecoilValue } from 'recoil'
 
-import { displayAtomSelector } from 'pages/articles/ui/page/display/model/displayAtom'
-import { articlesFiltersAtom } from 'pages/articles/ui/page/filters/model/filtersAtom'
+import { displayAtomSelector } from 'pages/articles/ui/display/model/displayAtom'
+import { articlesFiltersAtom } from 'pages/articles/ui/filters/model/filtersAtom'
 
 import { useGetArticles } from '@entities/article'
 
