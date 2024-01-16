@@ -1,10 +1,8 @@
 import { FC } from 'react'
 
-import { Card, Typography } from '@mui/joy'
+import { Card, Skeleton, Typography } from '@mui/joy'
 
 import { useGetUser } from '@entities/user'
-
-import { Loader } from 'shared/ui/loader/Loader'
 
 import { CommentType } from '../model/comment'
 
@@ -15,17 +13,19 @@ const Comment: FC<CommentProps> = (props) => {
 
   const { data, isLoading, isError } = useGetUser(userId)
 
-  if (isLoading) {
-    return <Loader />
-  }
-
   if (isError) {
     return null
   }
 
   return (
     <Card>
-      <Typography>{data.username}</Typography>
+      <Typography>
+        {isLoading ? (
+          <Skeleton>Consectetur incididunt.</Skeleton>
+        ) : (
+          data.username
+        )}
+      </Typography>
       <Typography>{text}</Typography>
     </Card>
   )

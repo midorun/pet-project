@@ -1,5 +1,7 @@
 export { default as ArticleDetails } from './ui/details/Details'
 export { default as ArticleList } from './ui/list/List'
+export { default as ArticleDetailsHeader } from './ui/details/header/Header'
+export { default as ArticleDetailsHeaderSkeleton } from './ui/details/header/HeaderSkeleton'
 export { default } from './ui/card/ArticleCard'
 export { type ArticleDetailsType } from './model/articleDetails'
 export { type ArticleType } from './model/article'

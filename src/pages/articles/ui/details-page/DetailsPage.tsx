@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 
 import AddComment from 'features/add-article-comment'
 
-import { Loader } from 'shared/ui/loader/Loader'
+import DetailsPageSkeleton from './DetailsPageSkeleton'
 
 const DetailsPage: FC = (props) => {
   const {} = props
@@ -17,8 +17,10 @@ const DetailsPage: FC = (props) => {
   const { t } = useTranslation()
 
   const { data, isSuccess } = useGetArticleDetails(id)
+  // const bool = true
+  // if (bool) return <DetailsPageSkeleton />
 
-  if (!isSuccess) return <Loader />
+  if (!isSuccess) return <DetailsPageSkeleton />
 
   return (
     <Stack gap={4}>
