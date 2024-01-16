@@ -8,8 +8,8 @@ import { useUpdateUser } from 'features/update-user-profile-card'
 
 import { UserType, useGetCurrentUser } from '@entities/user'
 
-import Card from 'shared/ui/card/Card'
-import { Loader } from 'shared/ui/loader/Loader'
+import Card from 'shared/ui/DEPRECATED/card/Card'
+import { Loader } from 'shared/ui/DEPRECATED/loader/Loader'
 import Input from 'shared/ui/text-field/TextField'
 
 type FormValues = Pick<UserType, 'username' | 'email' | 'phone' | 'website'>

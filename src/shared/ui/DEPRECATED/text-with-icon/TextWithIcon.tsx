@@ -7,7 +7,7 @@ type TextWithIconProps = {
   icon: FC<SVGProps<SVGSVGElement>>
   reversed?: boolean
 }
-
+/** @deprecated */
 const TextWithIcon: FC<TextWithIconProps> = (props) => {
   const { icon, text, reversed } = props
 

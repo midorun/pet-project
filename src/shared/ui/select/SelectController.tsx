@@ -6,6 +6,8 @@ import { GroupBase, Props } from 'react-select'
 import Select from './Select'
 import { isMultiValue } from './lib/isMultiValue'
 import { OptionType } from './model/types'
+import { Box, FormControl, FormHelperText, FormLabel, Typography } from '@mui/joy'
+import { DefaultTFuncReturn } from 'i18next'
 
 const SelectController = <
   TFieldValues extends FieldValues,
@@ -13,9 +15,12 @@ const SelectController = <
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
 >(
-  props: Props<Option, IsMulti> & UseControllerProps<TFieldValues>
+  props: Props<Option, IsMulti> & UseControllerProps<TFieldValues> & {
+    label?: string | DefaultTFuncReturn
+    error?: string
+  }
 ) => {
-  const { control, name, rules, isMulti } = props
+  const { control, name, rules, isMulti, error, label } = props
   const options = props.options as Option[] | []
 
   const { field, fieldState } = useController({ control, name, rules })
@@ -51,11 +56,15 @@ const SelectController = <
   }
 
   return (
-    <Select
+    <FormControl error={fieldState.invalid}>
+      <FormLabel>{label}</FormLabel>
+      <Select
       {...props}
       value={value}
       onChange={changeHandler}
     />
+    <FormHelperText>{error}</FormHelperText>
+    </FormControl>
   )
 }
 

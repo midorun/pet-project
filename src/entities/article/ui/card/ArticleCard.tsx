@@ -8,10 +8,10 @@ import { ArticleDetailsType } from '@entities/article'
 
 import articleImgSrcFallback from 'shared/assets/article-fallback.jpg'
 import cn from 'shared/lib/cn'
-import Card from 'shared/ui/card'
 
 import { ArticleType } from '../../model/article'
 import { blocksMap } from '../details/Details'
+import { Box, Card, Typography } from '@mui/joy'
 
 export type DisplayType = 'tile' | 'list'
 
@@ -39,16 +39,13 @@ const ArticleСard: FC<ArticleProps> = (props) => {
 
   return (
     <Card onClick={goToDetails}>
-      <div>
+      <Box sx={isDisplayTile ? {height: 200, width: 200} : {maxHeight: 550, width: '100%'}}>
         <img
-          className={cn('', {
-            'h-[200px] w-[200px]': isDisplayTile,
-            'max-h-[550px] w-full': !isDisplayTile,
-          })}
           src={img}
           alt={title}
           onError={handleImgError}
         />
+         </Box>
 
         <div
           className={cn('', {
@@ -56,14 +53,14 @@ const ArticleСard: FC<ArticleProps> = (props) => {
           })}
         >
           <div>
-            <span>{type}</span>
-            <span>{views}</span>
+            <Typography>{type}</Typography>
+            <Typography>{views}</Typography>
           </div>
-          <span className="whitespace-normal">{t(title)}</span>
+          <Typography className="whitespace-normal">{t(title)}</Typography>
           {/*  @ts-expect-error */}
           {firstBlockEl(firstBlock)}
         </div>
-      </div>
+     
     </Card>
   )
 }

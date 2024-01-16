@@ -9,7 +9,7 @@ import cn from 'shared/lib/cn'
 export type SkeletonProps = {
   isLoading?: boolean
 }
-
+/** @deprecated */
 const Skeleton: ForwardRefRenderFunction<
   HTMLDivElement,
   PropsWithChildren<SkeletonProps>

@@ -10,6 +10,7 @@ import TextFieldController from 'shared/ui/text-field/TextFieldController'
 import SelectController from 'shared/ui/select/SelectController'
 
 import { articlesFiltersAtom } from '../../model/filtersAtom'
+import { Box, Typography } from '@mui/joy'
 
 const orderOptions = [
   { value: 'asc', label: 'asc' },
@@ -58,33 +59,28 @@ const Filters: FC = () => {
   )
 
   return (
-    <form className={cn('')}>
-      <div>
-        <span>{t('Сортировать по')}</span>
-        <SelectController
-          control={control}
-          name={'order'}
-          options={orderOptions}
-        />
-      </div>
-      <div>
-        <span>{t('Сортировать по')}</span>
-        <SelectController
-          control={control}
-          name={'sort'}
-          options={sortOptions}
-        />
-      </div>
+    <form>
+      <SelectController
+        label={t('Сортировать по')}
+        control={control}
+        name={'order'}
+        options={orderOptions}
+      />
 
-      <div className="flex items-center space-x-1">
-        <span>{t('Название')}</span>
-        <TextFieldController
-          control={control}
-          name="title"
-          placeholder="Введите название"
-          className="w-[200px]"
-        />
-      </div>
+      <SelectController
+        label={t('Сортировать по')}
+        control={control}
+        name={'sort'}
+        options={sortOptions}
+      />
+    
+      <TextFieldController
+        label={'Название'}
+        control={control}
+        name="title"
+        placeholder="Введите название"
+        className="w-[200px]"
+      />
     </form>
   )
 }

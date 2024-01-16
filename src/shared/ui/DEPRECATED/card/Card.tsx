@@ -6,7 +6,7 @@ import { PropsWithClassName } from 'shared/model/types'
 type CardProps = {
   onClick?: () => void
 }
-
+/** @deprecated */
 const Card: FC<PropsWithClassName<PropsWithChildren<CardProps>>> = (props) => {
   const { children, className, onClick } = props
 

@@ -9,7 +9,7 @@ import {
 } from '@mui/joy'
 import { useTranslation } from 'react-i18next'
 
-import Loader from 'shared/ui/loader/Loader'
+import Loader from 'shared/ui/DEPRECATED/loader/Loader'
 
 import { useGetCurrentUser } from '../../api/useGetCurrentUser'
 

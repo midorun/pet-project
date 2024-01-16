@@ -8,9 +8,10 @@ import { articlesFiltersAtom } from 'pages/articles/ui/filters/model/filtersAtom
 import { useGetArticles } from '@entities/article'
 
 import cn from 'shared/lib/cn'
-import Loader from 'shared/ui/loader/Loader'
+import Loader from 'shared/ui/DEPRECATED/loader/Loader'
 
 import ArticleCard from '../card/ArticleCard'
+import { Stack } from '@mui/joy'
 
 const List: FC = () => {
   const filtersState = useRecoilValue(articlesFiltersAtom)
@@ -27,11 +28,8 @@ const List: FC = () => {
   }
 
   return (
-    <div
-      className={cn('', {
-        'flex flex-wrap gap-10': isDisplayTile,
-        'space-y-10': !isDisplayTile,
-      })}
+    <Stack
+      sx={[{flexWrap: 'wrap', gap: 10}, isDisplayTile && {flexDirection: 'row'}]}
     >
       {data.map((item) => {
         return (
@@ -43,7 +41,7 @@ const List: FC = () => {
           />
         )
       })}
-    </div>
+    </Stack>
   )
 }
 

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 
 import cn from 'shared/lib/cn'
-import { Loader } from 'shared/ui/loader/Loader'
+import { Loader } from 'shared/ui/DEPRECATED/loader/Loader'
 
 const PageLoader: FC = () => {
   return (
